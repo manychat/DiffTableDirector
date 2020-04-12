@@ -30,6 +30,7 @@
 		D5534B0C330D94B7A4C8A6CB85576305 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		DEFCC225E73367DB629A2519776C7C0C /* Pods-TableDirector_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E7A200A2C76770727BE5ADC9859BAA /* Pods-TableDirector_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E215CA0A24435BBC00FA6617 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA0924435BBC00FA6617 /* ConfigurableCell.swift */; };
+		E215CA132443606500FA6617 /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA122443606500FA6617 /* CellConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		BBED722E1E387944E2A6AFC11B075C37 /* TableDirector-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TableDirector-prefix.pch"; sourceTree = "<group>"; };
 		C5E232E8A43DD81313B254410231ABD9 /* Pods-TableDirector_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TableDirector_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E215CA0924435BBC00FA6617 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurableCell.swift; path = TableDirector/Classes/ConfigurableCell.swift; sourceTree = "<group>"; };
+		E215CA122443606500FA6617 /* CellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellConfigurator.swift; path = TableDirector/Classes/CellConfigurator.swift; sourceTree = "<group>"; };
 		E4DFE7C65D85A78AE8BDB194E3B29FBC /* Pods-TableDirector_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TableDirector_Tests-dummy.m"; sourceTree = "<group>"; };
 		E75C3EDF46988BF7CCEC63E9CB14D8BD /* TableDirector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TableDirector.debug.xcconfig; sourceTree = "<group>"; };
 		E8B81B183A6451B7026E718FFB277946 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		DC6D11F838FDFAE4DA1E1E8F8076F59A /* TableDirector */ = {
 			isa = PBXGroup;
 			children = (
+				E215CA122443606500FA6617 /* CellConfigurator.swift */,
 				E215CA0924435BBC00FA6617 /* ConfigurableCell.swift */,
 				4D98C9DE237DA0A656E81B7BC784C76C /* Pod */,
 				21DD5FEB46708C06B647C4392B1810AA /* Support Files */,
@@ -434,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E215CA132443606500FA6617 /* CellConfigurator.swift in Sources */,
 				E215CA0A24435BBC00FA6617 /* ConfigurableCell.swift in Sources */,
 				0DB1D1C6F1E7B7442BB44EBE211DA2DF /* TableDirector-dummy.m in Sources */,
 			);
