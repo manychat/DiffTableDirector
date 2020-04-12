@@ -18,6 +18,8 @@ public final class TableRow<CellType: ConfigurableCell>: CellConfigurator where 
 		self.item = item
 	}
 
+	/// Сonfigure cell with view model
+	/// - Parameter cell: cell to configurate
 	public func configure(cell: UITableViewCell) {
 		// This check is more for compilator - cause we use this object to ger reuseID.
 		// Out cell, that UITableViewDataSource will provide always conformed to CellType

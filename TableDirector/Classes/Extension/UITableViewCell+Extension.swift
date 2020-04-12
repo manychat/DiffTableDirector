@@ -7,11 +7,5 @@
 
 import Foundation
 
-extension UITableViewCell {
-	/// Return reuseIdentifier for UITableViewCell from class name
-	///
-	/// - Returns: reuseIdentifier
-	static var reuseIdentifier: String {
-		return String(String(describing: self.self).split(separator: ".").last!)
-	}
-}
+// MARK: - ReusableCell
+extension UITableViewCell: ReusableCell { }
