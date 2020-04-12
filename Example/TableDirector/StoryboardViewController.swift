@@ -11,7 +11,7 @@ import TableDirector
 
 class StoryboardViewController: UIViewController {
 	// MARK: - UI
-	@IBOutlet weak var tablView: UITableView!
+	@IBOutlet weak var tableView: UITableView!
 
 	// MARK: - Properties
 	var rows: [[CellConfigurator]] = [[]]
@@ -19,8 +19,23 @@ class StoryboardViewController: UIViewController {
 	// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+		
+		_registerCells(in: tableView)
+		rows = _loadData()
+		tableView.reloadData()
     }
+
+	private func _registerCells(in tableView: UITableView) {
+		tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
+		tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
+	}
+
+	private func _loadData() -> [[CellConfigurator]] {
+		let placeholderImage = UIImage(named: "placeholder")
+		let feedRow = TableRow<FeedCell>(item: .init(title: "Title", content: "Description", image: placeholderImage))
+		let infoRow = TableRow<InfoCell>(item: .init(title: "Info Title", content: "Info content"))
+		return [[feedRow, infoRow]]
+	}
 }
 
 // MARK: - UITableViewDelegate

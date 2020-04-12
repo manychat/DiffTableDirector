@@ -11,5 +11,5 @@ import UIKit
 struct FeedViewModel {
 	let title: String
 	let content: String
-	let image: UIImage
+	let image: UIImage?
 }

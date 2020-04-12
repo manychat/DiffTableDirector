@@ -11,7 +11,7 @@ import TableDirector
 
 class CodeViewController: UIViewController {
 	// MARK: - UI
-	private let _tablView: UITableView = {
+	private let _tableView: UITableView = {
 		let tableView = UITableView()
 		tableView.separatorStyle = .none
 		return tableView
@@ -32,16 +32,32 @@ class CodeViewController: UIViewController {
 	// MARK: - Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.addSubview(_tablView)
-		_tablView.delegate = self
-		_tablView.dataSource = self
-		_tablView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(_tableView)
+		_tableView.delegate = self
+		_tableView.dataSource = self
+		_tableView.translatesAutoresizingMaskIntoConstraints = false
 		
-		[_tablView.topAnchor.constraint(equalTo: view.topAnchor),
-			_tablView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-			_tablView.leftAnchor.constraint(equalTo: view.leftAnchor),
-			_tablView.rightAnchor.constraint(equalTo: view.rightAnchor)
+		[_tableView.topAnchor.constraint(equalTo: view.topAnchor),
+			_tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			_tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+			_tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
 			].forEach { $0.isActive = true }
+
+		_registerCells(in: _tableView)
+		rows = _loadData()
+		_tableView.reloadData()
+	}
+
+	private func _registerCells(in tableView: UITableView) {
+		tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
+		tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
+	}
+
+	private func _loadData() -> [[CellConfigurator]] {
+		let placeholderImage = UIImage(named: "placeholder")
+		let infoRow = TableRow<InfoCell>(item: .init(title: "Info Title", content: "Info content"))
+		let feedRow = TableRow<FeedCell>(item: .init(title: "Title", content: "Description", image: placeholderImage))
+		return [[infoRow, feedRow]]
 	}
 }
 
