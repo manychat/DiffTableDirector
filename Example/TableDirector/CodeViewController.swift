@@ -18,7 +18,9 @@ class CodeViewController: UIViewController {
 	}()
 
 	// MARK: - Properties
-	var rows: [[CellConfigurator]] = [[]]
+	private lazy var _tableDirector: TableDirectorInput = {
+		return TableDirector(tableView: _tableView)
+	}()
 
 	// MARK: - Init
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -33,8 +35,6 @@ class CodeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.addSubview(_tableView)
-		_tableView.delegate = self
-		_tableView.dataSource = self
 		_tableView.translatesAutoresizingMaskIntoConstraints = false
 		
 		[_tableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -44,8 +44,9 @@ class CodeViewController: UIViewController {
 			].forEach { $0.isActive = true }
 
 		_registerCells(in: _tableView)
-		rows = _loadData()
-		_tableView.reloadData()
+		let rows = _loadData()
+		_tableDirector.reload(with: rows)
+
 	}
 
 	private func _registerCells(in tableView: UITableView) {
@@ -58,35 +59,5 @@ class CodeViewController: UIViewController {
 		let infoRow = TableRow<InfoCell>(item: .init(title: "Info Title", content: "Info content"))
 		let feedRow = TableRow<FeedCell>(item: .init(title: "Title", content: "Description", image: placeholderImage))
 		return [[infoRow, feedRow]]
-	}
-}
-
-// MARK: - UITableViewDelegate
-extension CodeViewController: UITableViewDelegate {
-	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return UITableView.automaticDimension
-	}
-}
-
-// MARK: - UITableViewDelegate
-extension CodeViewController: UITableViewDataSource {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return rows[section].count
-	}
-
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return rows.count
-	}
-
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		// Our logic transform in 4 steps
-		// 1. Take view model
-		let item = rows[indexPath.section][indexPath.row]
-		// 2. Create cell
-		let cell = tableView.dequeueReusableCell(withIdentifier: item.reuseId, for: indexPath)
-		// 3. Configure cell
-		item.configure(cell: cell)
-		// 4. Return result
-		return cell
 	}
 }
