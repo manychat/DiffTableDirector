@@ -18,6 +18,9 @@ final class InfoCell: UITableViewCell {
 		return titleLabel
 	}()
 
+	// MARK: - Properties
+	weak var delegate: CellPressableDelegate?
+
 	// MARK: - Init
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -42,13 +45,20 @@ final class InfoCell: UITableViewCell {
 			_descriptionLabel.rightAnchor.constraint(equalTo: _titleLabel.rightAnchor),
 			_descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
 			].forEach { $0.isActive = true }
+
+		contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didPressedCell)))
+	}
+
+	@objc func didPressedCell() {
+		delegate?.didPressedCell(self)
 	}
 }
 
 // And every cell that we will use have to conform this
 // MARK: - ConfigurableCell
-extension InfoCell: ConfigurableCell {
+extension InfoCell: ActionCell {
 	typealias ViewModel = InfoViewModel
+	typealias Delegate = CellPressableDelegate
 
 	func configure(_ item: InfoViewModel) {
 		// Fill your cell with data here

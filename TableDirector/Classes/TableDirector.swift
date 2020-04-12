@@ -14,7 +14,6 @@ public final class TableDirector: NSObject {
 	// We need access to table view to perform some task. Object responsible for UI will retain table view
 	private weak var _tableView: UITableView?
 
-
 	/// Create instance with table view
 	/// - Parameter tableView: table view to controll
 	public init(tableView: UITableView) {
@@ -31,6 +30,10 @@ extension TableDirector: TableDirectorInput {
 	public func reload(with rows: [[CellConfigurator]]) {
 		self._rows = rows
 		_tableView?.reloadData()
+	}
+
+	public func indexPath(for cell: UITableViewCell) -> IndexPath? {
+		return _tableView?.indexPath(for: cell)
 	}
 }
 

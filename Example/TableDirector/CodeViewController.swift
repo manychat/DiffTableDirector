@@ -22,6 +22,9 @@ class CodeViewController: UIViewController {
 		return TableDirector(tableView: _tableView)
 	}()
 
+	var feedModels: [FeedModel] = []
+	var infoModels: [InfoModel] = []
+
 	// MARK: - Init
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nil, bundle: nil)
@@ -44,7 +47,10 @@ class CodeViewController: UIViewController {
 			].forEach { $0.isActive = true }
 
 		_registerCells(in: _tableView)
-		let rows = _loadData()
+		feedModels = _loadFeed()
+		infoModels = _loadInfo()
+
+		let rows = _createRows(feedModels: feedModels, infoModels: infoModels)
 		_tableDirector.reload(with: rows)
 
 	}
@@ -54,10 +60,46 @@ class CodeViewController: UIViewController {
 		tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
 	}
 
-	private func _loadData() -> [[CellConfigurator]] {
+	private func _loadFeed() -> [FeedModel] {
+		return [
+			.init(title: "Title", content: "Description", isMine: true)
+		]
+	}
+
+	private func _loadInfo() -> [InfoModel] {
+		return [
+			.init(title: "Info Title", content: "Pressabe info cell"),
+			.init(title: "Info Title 2", content: "Info content")
+		]
+	}
+
+	private func _createRows(feedModels: [FeedModel], infoModels: [InfoModel]) -> [[CellConfigurator]] {
 		let placeholderImage = UIImage(named: "placeholder")
-		let infoRow = TableRow<InfoCell>(item: .init(title: "Info Title", content: "Info content"))
-		let feedRow = TableRow<FeedCell>(item: .init(title: "Title", content: "Description", image: placeholderImage))
-		return [[infoRow, feedRow]]
+		let infoRows = infoModels.map { (infoModel) in
+			return TableActionRow<InfoCell>(item: .init(title: infoModel.title, content: infoModel.content), delegate: self)
+		}
+		let feedRows = feedModels.map { (feedModel: FeedModel) -> TableRow<FeedCell> in
+			let viewModel = FeedViewModel(title: feedModel.title, content: feedModel.content, image: placeholderImage)
+			return TableRow<FeedCell>(item: viewModel)
+		}
+		return [infoRows, feedRows]
+	}
+}
+
+// MARK: - CellPressableDelegate
+extension CodeViewController: CellPressableDelegate {
+	func didPressedCell(_ cell: UITableViewCell) {
+		guard let indexPath = _tableDirector.indexPath(for: cell) else { return }
+		let alertController = UIAlertController(title: "Did select", message: nil, preferredStyle: .alert)
+		switch indexPath.section {
+		case 0:
+			alertController.message = "Model with title: \(infoModels[indexPath.row].title)"
+		case 1:
+			alertController.message = "Model with title: \(feedModels[indexPath.row].title)"
+		default:
+			break
+		}
+		alertController.addAction(.init(title: "OK", style: .cancel, handler: nil))
+		present(alertController, animated: true, completion: nil)
 	}
 }
