@@ -11,8 +11,12 @@ import Foundation
 public protocol TableDirectorInput: class {
 
 	/// Reload table view with provided rows
-	/// - Parameter rows: new table rows
-	func reload(with rows: [[CellConfigurator]])
+	/// - Parameter rows: new table sections
+	func reload(with sections: [TableSection])
+
+	/// Reload table view with single sections containig provider rows
+	/// - Parameter rows: new table view rows
+	func reload(with rows: [CellConfigurator])
 
 	/// Got index path of cell if it exist in table view
 	/// - Parameter cell: table cell to find indexPath

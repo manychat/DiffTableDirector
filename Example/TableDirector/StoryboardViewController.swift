@@ -28,15 +28,16 @@ class StoryboardViewController: UIViewController {
 		feedModels = _loadFeed()
 		infoModels = _loadInfo()
 
-		let rows = _createRows(feedModels: feedModels, infoModels: infoModels)
-		_tableDirector?.reload(with: rows)
+		let sections = _createSections(feedModels: feedModels, infoModels: infoModels)
+		_tableDirector?.reload(with: sections)
     }
 
 	private func _registerCells(in tableView: UITableView) {
-		tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
-		tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
+		tableView.register(TitleHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TitleHeaderFooterView.reuseIdentifier)
+		tableView.register(InfoCell.self, forCellReuseIdentifier: InfoCell.reuseIdentifier)
+		let feedNib = UINib(nibName: String(describing: FeedCell.self), bundle: nil)
+		tableView.register(feedNib, forCellReuseIdentifier: FeedCell.reuseIdentifier)
 	}
-
 
 	private func _loadFeed() -> [FeedModel] {
 		return [
@@ -51,16 +52,18 @@ class StoryboardViewController: UIViewController {
 		]
 	}
 
-	private func _createRows(feedModels: [FeedModel], infoModels: [InfoModel]) -> [[CellConfigurator]] {
+	private func _createSections(feedModels: [FeedModel], infoModels: [InfoModel]) -> [TableSection] {
 		let placeholderImage = UIImage(named: "placeholder")
 		let infoRows = infoModels.map { (infoModel) in
 			return TableActionRow<InfoCell>(item: .init(title: infoModel.title, content: infoModel.content), delegate: self)
 		}
+		let infoHeader = TableHeader<TitleHeaderFooterView>(item: "Info")
+		
 		let feedRows = feedModels.map { (feedModel: FeedModel) -> TableRow<FeedCell> in
 			let viewModel = FeedViewModel(title: feedModel.title, content: feedModel.content, image: placeholderImage)
 			return TableRow<FeedCell>(item: viewModel)
 		}
-		return [infoRows, feedRows]
+		return [TableSection(rows: infoRows, headerView: infoHeader), TableSection(rows: feedRows)]
 	}
 }
 

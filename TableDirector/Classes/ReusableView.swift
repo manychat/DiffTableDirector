@@ -8,12 +8,12 @@
 import Foundation
 
 /// Provide reuse identifier for reusability
-public protocol ReusableCell {
+public protocol ReusableView {
 	static var reuseIdentifier: String { get }
 }
 
-// Default implementation
-public extension ReusableCell {
+/// Default implementation
+public extension ReusableView {
 	static var reuseIdentifier: String {
 		return String(describing: self)
 	}

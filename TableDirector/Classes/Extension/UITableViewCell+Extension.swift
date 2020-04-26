@@ -5,7 +5,7 @@
 //  Created by Aleksandr Lavrinenko on 12.04.2020.
 //
 
-import Foundation
+import UIKit
 
-// MARK: - ReusableCell
-extension UITableViewCell: ReusableCell { }
+// MARK: - ReusableView
+extension UITableViewCell: ReusableView { }

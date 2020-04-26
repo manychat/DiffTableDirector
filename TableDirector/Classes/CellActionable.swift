@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Separate protocol for cell with action. Remember 'I' from SOLID?
+/// Separate protocol for cell with action. Remember 'I' from SOLID?
 public protocol CellActionable: class {
 	associatedtype Delegate
 	var delegate: Delegate? { get set }

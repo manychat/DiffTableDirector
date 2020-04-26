@@ -31,7 +31,7 @@
 		DEFCC225E73367DB629A2519776C7C0C /* Pods-TableDirector_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E7A200A2C76770727BE5ADC9859BAA /* Pods-TableDirector_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E215CA0A24435BBC00FA6617 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA0924435BBC00FA6617 /* ConfigurableCell.swift */; };
 		E215CA132443606500FA6617 /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA122443606500FA6617 /* CellConfigurator.swift */; };
-		E215CA242443763300FA6617 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA232443763300FA6617 /* ReusableCell.swift */; };
+		E215CA242443763300FA6617 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA232443763300FA6617 /* ReusableView.swift */; };
 		E215CA28244376F500FA6617 /* TableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA27244376F500FA6617 /* TableDirector.swift */; };
 		E215CA2C2443774000FA6617 /* TableDirectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA2B2443774000FA6617 /* TableDirectorInput.swift */; };
 		E215CA3724437AE800FA6617 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA2F24437AE800FA6617 /* UITableViewCell+Extension.swift */; };
@@ -39,6 +39,11 @@
 		E215CA4024437B4900FA6617 /* CellActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA3F24437B4900FA6617 /* CellActionable.swift */; };
 		E215CA4224437B7C00FA6617 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4124437B7C00FA6617 /* ActionCell.swift */; };
 		E215CA4424437BA300FA6617 /* TableActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4324437BA300FA6617 /* TableActionRow.swift */; };
+		E2C9A3D8244B168000886EE3 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D6244B164E00886EE3 /* TableSection.swift */; };
+		E2C9A3D9244B168500886EE3 /* HeaderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */; };
+		E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3DE244B20D700886EE3 /* UITableViewHeaderFooterView+Extensions.swift */; };
+		E2C9A3E1244B20F900886EE3 /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3DA244B208600886EE3 /* TableHeader.swift */; };
+		E2C9A3E2244B20FE00886EE3 /* ConfigurableHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3DC244B20AE00886EE3 /* ConfigurableHeaderFooter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +107,7 @@
 		C5E232E8A43DD81313B254410231ABD9 /* Pods-TableDirector_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TableDirector_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E215CA0924435BBC00FA6617 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		E215CA122443606500FA6617 /* CellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
-		E215CA232443763300FA6617 /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
+		E215CA232443763300FA6617 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		E215CA27244376F500FA6617 /* TableDirector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDirector.swift; sourceTree = "<group>"; };
 		E215CA2B2443774000FA6617 /* TableDirectorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDirectorInput.swift; sourceTree = "<group>"; };
 		E215CA2F24437AE800FA6617 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -110,6 +115,11 @@
 		E215CA3F24437B4900FA6617 /* CellActionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellActionable.swift; sourceTree = "<group>"; };
 		E215CA4124437B7C00FA6617 /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		E215CA4324437BA300FA6617 /* TableActionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableActionRow.swift; sourceTree = "<group>"; };
+		E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderConfigurator.swift; sourceTree = "<group>"; };
+		E2C9A3D6244B164E00886EE3 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
+		E2C9A3DA244B208600886EE3 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
+		E2C9A3DC244B20AE00886EE3 /* ConfigurableHeaderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableHeaderFooter.swift; sourceTree = "<group>"; };
+		E2C9A3DE244B20D700886EE3 /* UITableViewHeaderFooterView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+Extensions.swift"; sourceTree = "<group>"; };
 		E4DFE7C65D85A78AE8BDB194E3B29FBC /* Pods-TableDirector_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TableDirector_Tests-dummy.m"; sourceTree = "<group>"; };
 		E75C3EDF46988BF7CCEC63E9CB14D8BD /* TableDirector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TableDirector.debug.xcconfig; sourceTree = "<group>"; };
 		E8B81B183A6451B7026E718FFB277946 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -300,16 +310,19 @@
 		E215CA2D24437AE800FA6617 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E2C9A3D3244B124100886EE3 /* Header */,
+				E2C9A3D2244B120F00886EE3 /* Director */,
+				E2C9A3D1244B11F200886EE3 /* Row */,
 				E215CA2E24437AE800FA6617 /* Extension */,
-				E215CA3024437AE800FA6617 /* TableRow.swift */,
-				E215CA4324437BA300FA6617 /* TableActionRow.swift */,
 				E215CA4124437B7C00FA6617 /* ActionCell.swift */,
+				E2C9A3DA244B208600886EE3 /* TableHeader.swift */,
+				E2C9A3D6244B164E00886EE3 /* TableSection.swift */,
+				E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */,
 				E215CA3F24437B4900FA6617 /* CellActionable.swift */,
-				E215CA122443606500FA6617 /* CellConfigurator.swift */,
+				E2C9A3DC244B20AE00886EE3 /* ConfigurableHeaderFooter.swift */,
 				E215CA0924435BBC00FA6617 /* ConfigurableCell.swift */,
-				E215CA232443763300FA6617 /* ReusableCell.swift */,
-				E215CA27244376F500FA6617 /* TableDirector.swift */,
-				E215CA2B2443774000FA6617 /* TableDirectorInput.swift */,
+				E215CA122443606500FA6617 /* CellConfigurator.swift */,
+				E215CA232443763300FA6617 /* ReusableView.swift */,
 			);
 			name = Classes;
 			path = TableDirector/Classes;
@@ -319,8 +332,34 @@
 			isa = PBXGroup;
 			children = (
 				E215CA2F24437AE800FA6617 /* UITableViewCell+Extension.swift */,
+				E2C9A3DE244B20D700886EE3 /* UITableViewHeaderFooterView+Extensions.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E2C9A3D1244B11F200886EE3 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				E215CA3024437AE800FA6617 /* TableRow.swift */,
+				E215CA4324437BA300FA6617 /* TableActionRow.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		E2C9A3D2244B120F00886EE3 /* Director */ = {
+			isa = PBXGroup;
+			children = (
+				E215CA27244376F500FA6617 /* TableDirector.swift */,
+				E215CA2B2443774000FA6617 /* TableDirectorInput.swift */,
+			);
+			path = Director;
+			sourceTree = "<group>";
+		};
+		E2C9A3D3244B124100886EE3 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,15 +519,20 @@
 			files = (
 				E215CA132443606500FA6617 /* CellConfigurator.swift in Sources */,
 				E215CA4424437BA300FA6617 /* TableActionRow.swift in Sources */,
-				E215CA242443763300FA6617 /* ReusableCell.swift in Sources */,
+				E2C9A3D8244B168000886EE3 /* TableSection.swift in Sources */,
+				E215CA242443763300FA6617 /* ReusableView.swift in Sources */,
 				E215CA2C2443774000FA6617 /* TableDirectorInput.swift in Sources */,
 				E215CA3724437AE800FA6617 /* UITableViewCell+Extension.swift in Sources */,
 				E215CA4224437B7C00FA6617 /* ActionCell.swift in Sources */,
 				E215CA4024437B4900FA6617 /* CellActionable.swift in Sources */,
 				E215CA28244376F500FA6617 /* TableDirector.swift in Sources */,
 				E215CA3824437AE800FA6617 /* TableRow.swift in Sources */,
+				E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */,
+				E2C9A3E1244B20F900886EE3 /* TableHeader.swift in Sources */,
 				E215CA0A24435BBC00FA6617 /* ConfigurableCell.swift in Sources */,
+				E2C9A3E2244B20FE00886EE3 /* ConfigurableHeaderFooter.swift in Sources */,
 				0DB1D1C6F1E7B7442BB44EBE211DA2DF /* TableDirector-dummy.m in Sources */,
+				E2C9A3D9244B168500886EE3 /* HeaderConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,7 @@
 		E215CA4624437C2D00FA6617 /* CellPressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4524437C2D00FA6617 /* CellPressable.swift */; };
 		E215CA4824437DE800FA6617 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4724437DE800FA6617 /* FeedModel.swift */; };
 		E215CA4B24437E3100FA6617 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4A24437E3100FA6617 /* InfoModel.swift */; };
+		E2C9A3E5244B22A700886EE3 /* TitleHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3E4244B22A700886EE3 /* TitleHeaderFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E215CA4524437C2D00FA6617 /* CellPressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPressable.swift; sourceTree = "<group>"; };
 		E215CA4724437DE800FA6617 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		E215CA4A24437E3100FA6617 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		E2C9A3E4244B22A700886EE3 /* TitleHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderFooterView.swift; sourceTree = "<group>"; };
 		EB0031257D3D52A2D2FC797B /* Pods-TableDirector_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableDirector_Example.debug.xcconfig"; path = "Target Support Files/Pods-TableDirector_Example/Pods-TableDirector_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EFED8A4A66F91066D3113DCB /* Pods_TableDirector_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableDirector_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 		607FACD21AFB9204008FA782 /* Example for TableDirector */ = {
 			isa = PBXGroup;
 			children = (
+				E2C9A3E3244B228F00886EE3 /* HeaderFooterView */,
 				E215CA4924437DEB00FA6617 /* Models */,
 				E215CA06244353A000FA6617 /* Resources */,
 				E215CA052443539500FA6617 /* ViewControllers */,
@@ -213,6 +216,14 @@
 				E215CA4A24437E3100FA6617 /* InfoModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E2C9A3E3244B228F00886EE3 /* HeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				E2C9A3E4244B22A700886EE3 /* TitleHeaderFooterView.swift */,
+			);
+			name = HeaderFooterView;
 			sourceTree = "<group>";
 		};
 		FF846A6A3A2AD153C784FCE3 /* Pods */ = {
@@ -423,6 +434,7 @@
 				E215C9FC24434FD300FA6617 /* CodeViewController.swift in Sources */,
 				E215C9FF244350A400FA6617 /* FeedCell.swift in Sources */,
 				607FACD81AFB9204008FA782 /* StoryboardViewController.swift in Sources */,
+				E2C9A3E5244B22A700886EE3 /* TitleHeaderFooterView.swift in Sources */,
 				E215CA4B24437E3100FA6617 /* InfoModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				E215CA0C24435C1000FA6617 /* InfoViewModel.swift in Sources */,
