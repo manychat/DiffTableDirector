@@ -8,4 +8,4 @@
 import Foundation
 
 // Extend CellConfigurable version buy protocol composition
-public protocol ActionCell: ConfigurableCell, CellActionable { }
+public protocol ActionCell: ConfigurableCell, TableItemActionable { }

@@ -27,6 +27,10 @@ final class TitleHeaderFooterView: UITableViewHeaderFooterView {
 			_titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 			_titleLabel.heightAnchor.constraint(equalToConstant: _height)
 			].forEach({ $0.isActive = true })
+
+		let backgroundView = UIView()
+		backgroundView.backgroundColor = .white
+		self.backgroundView = backgroundView
 	}
 
 	required init?(coder: NSCoder) {

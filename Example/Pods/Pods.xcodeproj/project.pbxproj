@@ -36,9 +36,11 @@
 		E215CA2C2443774000FA6617 /* TableDirectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA2B2443774000FA6617 /* TableDirectorInput.swift */; };
 		E215CA3724437AE800FA6617 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA2F24437AE800FA6617 /* UITableViewCell+Extension.swift */; };
 		E215CA3824437AE800FA6617 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA3024437AE800FA6617 /* TableRow.swift */; };
-		E215CA4024437B4900FA6617 /* CellActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA3F24437B4900FA6617 /* CellActionable.swift */; };
+		E215CA4024437B4900FA6617 /* TableItemActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA3F24437B4900FA6617 /* TableItemActionable.swift */; };
 		E215CA4224437B7C00FA6617 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4124437B7C00FA6617 /* ActionCell.swift */; };
 		E215CA4424437BA300FA6617 /* TableActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4324437BA300FA6617 /* TableActionRow.swift */; };
+		E274D8C5245C016D00EA11A0 /* TableActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8C1245C009B00EA11A0 /* TableActionHeader.swift */; };
+		E274D8C6245C01B900EA11A0 /* ActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8C3245C010E00EA11A0 /* ActionHeader.swift */; };
 		E2C9A3D8244B168000886EE3 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D6244B164E00886EE3 /* TableSection.swift */; };
 		E2C9A3D9244B168500886EE3 /* HeaderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */; };
 		E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3DE244B20D700886EE3 /* UITableViewHeaderFooterView+Extensions.swift */; };
@@ -112,9 +114,11 @@
 		E215CA2B2443774000FA6617 /* TableDirectorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDirectorInput.swift; sourceTree = "<group>"; };
 		E215CA2F24437AE800FA6617 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		E215CA3024437AE800FA6617 /* TableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
-		E215CA3F24437B4900FA6617 /* CellActionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellActionable.swift; sourceTree = "<group>"; };
+		E215CA3F24437B4900FA6617 /* TableItemActionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableItemActionable.swift; sourceTree = "<group>"; };
 		E215CA4124437B7C00FA6617 /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		E215CA4324437BA300FA6617 /* TableActionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableActionRow.swift; sourceTree = "<group>"; };
+		E274D8C1245C009B00EA11A0 /* TableActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableActionHeader.swift; sourceTree = "<group>"; };
+		E274D8C3245C010E00EA11A0 /* ActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHeader.swift; sourceTree = "<group>"; };
 		E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderConfigurator.swift; sourceTree = "<group>"; };
 		E2C9A3D6244B164E00886EE3 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		E2C9A3DA244B208600886EE3 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
@@ -315,12 +319,12 @@
 				E2C9A3D1244B11F200886EE3 /* Row */,
 				E215CA2E24437AE800FA6617 /* Extension */,
 				E215CA4124437B7C00FA6617 /* ActionCell.swift */,
-				E2C9A3DA244B208600886EE3 /* TableHeader.swift */,
+				E274D8C3245C010E00EA11A0 /* ActionHeader.swift */,
 				E2C9A3D6244B164E00886EE3 /* TableSection.swift */,
-				E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */,
-				E215CA3F24437B4900FA6617 /* CellActionable.swift */,
-				E2C9A3DC244B20AE00886EE3 /* ConfigurableHeaderFooter.swift */,
 				E215CA0924435BBC00FA6617 /* ConfigurableCell.swift */,
+				E2C9A3DC244B20AE00886EE3 /* ConfigurableHeaderFooter.swift */,
+				E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */,
+				E215CA3F24437B4900FA6617 /* TableItemActionable.swift */,
 				E215CA122443606500FA6617 /* CellConfigurator.swift */,
 				E215CA232443763300FA6617 /* ReusableView.swift */,
 			);
@@ -358,6 +362,8 @@
 		E2C9A3D3244B124100886EE3 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				E2C9A3DA244B208600886EE3 /* TableHeader.swift */,
+				E274D8C1245C009B00EA11A0 /* TableActionHeader.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -519,12 +525,14 @@
 			files = (
 				E215CA132443606500FA6617 /* CellConfigurator.swift in Sources */,
 				E215CA4424437BA300FA6617 /* TableActionRow.swift in Sources */,
+				E274D8C6245C01B900EA11A0 /* ActionHeader.swift in Sources */,
 				E2C9A3D8244B168000886EE3 /* TableSection.swift in Sources */,
 				E215CA242443763300FA6617 /* ReusableView.swift in Sources */,
 				E215CA2C2443774000FA6617 /* TableDirectorInput.swift in Sources */,
+				E274D8C5245C016D00EA11A0 /* TableActionHeader.swift in Sources */,
 				E215CA3724437AE800FA6617 /* UITableViewCell+Extension.swift in Sources */,
 				E215CA4224437B7C00FA6617 /* ActionCell.swift in Sources */,
-				E215CA4024437B4900FA6617 /* CellActionable.swift in Sources */,
+				E215CA4024437B4900FA6617 /* TableItemActionable.swift in Sources */,
 				E215CA28244376F500FA6617 /* TableDirector.swift in Sources */,
 				E215CA3824437AE800FA6617 /* TableRow.swift in Sources */,
 				E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */,
