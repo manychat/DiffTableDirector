@@ -9,7 +9,7 @@ import Foundation
 
 public final class TableActionHeader<HeaderType: ActionHeader>: HeaderConfigurator
 where HeaderType: UITableViewHeaderFooterView {
-	public var reuseId: String { return HeaderType.reuseIdentifier }
+	public var viewClass: UITableViewHeaderFooterView.Type { return HeaderType.self }
 
 	var item: HeaderType.ViewModel
 	// Delegate must be weak or we gonna have big memory issue

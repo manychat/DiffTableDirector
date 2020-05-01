@@ -9,7 +9,7 @@ import Foundation
 
 /// Interface for every 
 public protocol CellConfigurator {
-	var reuseId: String { get }
+	var cellClass: UITableViewCell.Type { get }
 
 	func configure(cell: UITableViewCell)
 }

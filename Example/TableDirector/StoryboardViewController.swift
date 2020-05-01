@@ -23,7 +23,6 @@ class StoryboardViewController: UIViewController {
         super.viewDidLoad()
 
 		_tableDirector = TableDirector(tableView: tableView)
-		_registerCells(in: tableView)
 
 		feedModels = _loadFeed()
 		infoModels = _loadInfo()
@@ -31,13 +30,6 @@ class StoryboardViewController: UIViewController {
 		let sections = _createSections(feedModels: feedModels, infoModels: infoModels)
 		_tableDirector?.reload(with: sections)
     }
-
-	private func _registerCells(in tableView: UITableView) {
-		tableView.register(TitleHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TitleHeaderFooterView.reuseIdentifier)
-		tableView.register(InfoCell.self, forCellReuseIdentifier: InfoCell.reuseIdentifier)
-		let feedNib = UINib(nibName: String(describing: FeedCell.self), bundle: nil)
-		tableView.register(feedNib, forCellReuseIdentifier: FeedCell.reuseIdentifier)
-	}
 
 	private func _loadFeed() -> [FeedModel] {
 		return [

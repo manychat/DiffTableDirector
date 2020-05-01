@@ -9,3 +9,6 @@ import UIKit
 
 // MARK: - ReusableView
 extension UITableViewCell: ReusableView { }
+
+// MARK: - FromNibLoadableView
+extension UITableViewCell: FromNibLoadable { }

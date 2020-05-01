@@ -9,3 +9,6 @@ import UIKit
 
 // MARK: - ReusableView
 extension UITableViewHeaderFooterView: ReusableView { }
+
+// MARK: - FromNibLoadableView
+extension UITableViewHeaderFooterView: FromNibLoadable { }

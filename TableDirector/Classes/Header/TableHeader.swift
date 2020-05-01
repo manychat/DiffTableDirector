@@ -10,7 +10,7 @@ import Foundation
 /// Configure provided header with view model
 public class TableHeader<HeaderType: ConfigurableHeaderFooter>: HeaderConfigurator
 where HeaderType: UITableViewHeaderFooterView {
-	public var reuseId: String { return HeaderType.reuseIdentifier }
+	public var viewClass: UITableViewHeaderFooterView.Type { return HeaderType.self }
 
 	let item: HeaderType.ViewModel
 

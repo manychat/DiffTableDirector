@@ -41,6 +41,8 @@
 		E215CA4424437BA300FA6617 /* TableActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4324437BA300FA6617 /* TableActionRow.swift */; };
 		E274D8C5245C016D00EA11A0 /* TableActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8C1245C009B00EA11A0 /* TableActionHeader.swift */; };
 		E274D8C6245C01B900EA11A0 /* ActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8C3245C010E00EA11A0 /* ActionHeader.swift */; };
+		E274D8C9245C0B0500EA11A0 /* TableDirector.Registrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8C7245C0AFB00EA11A0 /* TableDirector.Registrator.swift */; };
+		E274D8CC245C0C4000EA11A0 /* FromNibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8CA245C0B4E00EA11A0 /* FromNibLoadable.swift */; };
 		E2C9A3D8244B168000886EE3 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D6244B164E00886EE3 /* TableSection.swift */; };
 		E2C9A3D9244B168500886EE3 /* HeaderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */; };
 		E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3DE244B20D700886EE3 /* UITableViewHeaderFooterView+Extensions.swift */; };
@@ -119,6 +121,8 @@
 		E215CA4324437BA300FA6617 /* TableActionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableActionRow.swift; sourceTree = "<group>"; };
 		E274D8C1245C009B00EA11A0 /* TableActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableActionHeader.swift; sourceTree = "<group>"; };
 		E274D8C3245C010E00EA11A0 /* ActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHeader.swift; sourceTree = "<group>"; };
+		E274D8C7245C0AFB00EA11A0 /* TableDirector.Registrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.Registrator.swift; sourceTree = "<group>"; };
+		E274D8CA245C0B4E00EA11A0 /* FromNibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromNibLoadable.swift; sourceTree = "<group>"; };
 		E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderConfigurator.swift; sourceTree = "<group>"; };
 		E2C9A3D6244B164E00886EE3 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		E2C9A3DA244B208600886EE3 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 				E215CA3F24437B4900FA6617 /* TableItemActionable.swift */,
 				E215CA122443606500FA6617 /* CellConfigurator.swift */,
 				E215CA232443763300FA6617 /* ReusableView.swift */,
+				E274D8CA245C0B4E00EA11A0 /* FromNibLoadable.swift */,
 			);
 			name = Classes;
 			path = TableDirector/Classes;
@@ -353,6 +358,7 @@
 		E2C9A3D2244B120F00886EE3 /* Director */ = {
 			isa = PBXGroup;
 			children = (
+				E274D8C7245C0AFB00EA11A0 /* TableDirector.Registrator.swift */,
 				E215CA27244376F500FA6617 /* TableDirector.swift */,
 				E215CA2B2443774000FA6617 /* TableDirectorInput.swift */,
 			);
@@ -537,7 +543,9 @@
 				E215CA3824437AE800FA6617 /* TableRow.swift in Sources */,
 				E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */,
 				E2C9A3E1244B20F900886EE3 /* TableHeader.swift in Sources */,
+				E274D8C9245C0B0500EA11A0 /* TableDirector.Registrator.swift in Sources */,
 				E215CA0A24435BBC00FA6617 /* ConfigurableCell.swift in Sources */,
+				E274D8CC245C0C4000EA11A0 /* FromNibLoadable.swift in Sources */,
 				E2C9A3E2244B20FE00886EE3 /* ConfigurableHeaderFooter.swift in Sources */,
 				0DB1D1C6F1E7B7442BB44EBE211DA2DF /* TableDirector-dummy.m in Sources */,
 				E2C9A3D9244B168500886EE3 /* HeaderConfigurator.swift in Sources */,

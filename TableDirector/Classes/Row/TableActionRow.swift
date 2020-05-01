@@ -8,7 +8,7 @@
 import Foundation
 
 public final class TableActionRow<CellType: ActionCell>: CellConfigurator where CellType: UITableViewCell {
-	public var reuseId: String { return CellType.reuseIdentifier }
+	public var cellClass: UITableViewCell.Type { return CellType.self }
 
 	var item: CellType.ViewModel
 	// Delegate must be weak or we gonna have big memory issue

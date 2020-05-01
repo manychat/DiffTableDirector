@@ -9,7 +9,8 @@ import UIKit
 
 /// Configure Header with view model
 public protocol HeaderConfigurator {
-	var reuseId: String { get }
+	var viewClass: UITableViewHeaderFooterView.Type { get }
+
 	func configure(view: UITableViewHeaderFooterView)
 }
 

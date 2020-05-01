@@ -10,7 +10,7 @@ import Foundation
 // We need geenric CellType - we gonna take all information from there.
 // Also we should check if CellType is tableViewCell. Our protocol can be used for collectionView also
 public final class TableRow<CellType: ConfigurableCell>: CellConfigurator where CellType: UITableViewCell {
-	public var reuseId: String { return CellType.reuseIdentifier }
+	public var cellClass: UITableViewCell.Type { return CellType.self }
 
 	var item: CellType.ViewModel
 

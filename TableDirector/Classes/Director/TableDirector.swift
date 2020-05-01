@@ -10,14 +10,20 @@ import UIKit
 // We have to inheritance NSObject - tableView delegates require it
 /// Perform all work with table view
 public final class TableDirector: NSObject {
+	private let _registrator: Registrator
 	private var _sections: [TableSection] = []
 	// We need access to table view to perform some task. Object responsible for UI will retain table view
 	private weak var _tableView: UITableView?
 
+	// Give us ability to switch off self registration
+	public var isSelfRegistrationEnabled: Bool
+
 	/// Create instance with table view
 	/// - Parameter tableView: table view to controll
-	public init(tableView: UITableView) {
+	public init(tableView: UITableView, isSelfRegistrationEnabled: Bool = true) {
 		self._tableView = tableView
+		self._registrator = Registrator(tableView: tableView)
+		self.isSelfRegistrationEnabled = isSelfRegistrationEnabled
 		super.init()
 
 		tableView.delegate = self
@@ -30,9 +36,12 @@ public final class TableDirector: NSObject {
 	}
 
 	private func _createHeaderFooterView(with configurator: HeaderConfigurator, tableView: UITableView) -> UIView? {
-		let reuseId = configurator.reuseId
+		if isSelfRegistrationEnabled {
+			_registrator.registerIfNeeded(headerFooterClass: configurator.viewClass)
+		}
+		let reuseId = configurator.viewClass.reuseIdentifier
 		guard let headerFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseId) else {
-			assertionFailure("Probably you forgot to register \(configurator.reuseId) in tableView")
+			assertionFailure("Probably you forgot to register \(reuseId) in tableView")
 			return nil
 		}
 		configurator.configure(view: headerFooterView)
@@ -69,7 +78,12 @@ extension TableDirector: UITableViewDelegate & UITableViewDataSource {
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let item = _sections[indexPath.section].rows[indexPath.row]
-		let cell = tableView.dequeueReusableCell(withIdentifier: item.reuseId, for: indexPath)
+		if isSelfRegistrationEnabled {
+			_registrator.registerIfNeeded(cellClass: item.cellClass)
+		}
+		let cell = tableView.dequeueReusableCell(
+			withIdentifier: item.cellClass.reuseIdentifier,
+			for: indexPath)
 		item.configure(cell: cell)
 		return cell
 	}
