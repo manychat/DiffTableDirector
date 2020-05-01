@@ -1,6 +1,6 @@
 //
 //  TableDirector.swift
-//  Pods-TableDirector_Example
+//  TableDirector
 //
 //  Created by Aleksandr Lavrinenko on 12.04.2020.
 //
@@ -11,7 +11,15 @@ import UIKit
 /// Perform all work with table view
 public final class TableDirector: NSObject {
 	private let _registrator: Registrator
-	private var _sections: [TableSection] = []
+	private let _coverController: CoverView.Controller
+	private var _sections: [TableSection] = [] {
+		didSet {
+			_changeCoverViewVisability(isSectionsEmpty: _sections.isEmpty)
+		}
+	}
+	private var _defaultCoverViewShowParams: CoverView.ShowParams?
+	private var _canShowEmptyView: Bool = true
+
 	// We need access to table view to perform some task. Object responsible for UI will retain table view
 	private weak var _tableView: UITableView?
 
@@ -23,6 +31,7 @@ public final class TableDirector: NSObject {
 	public init(tableView: UITableView, isSelfRegistrationEnabled: Bool = true) {
 		self._tableView = tableView
 		self._registrator = Registrator(tableView: tableView)
+		self._coverController = CoverView.Controller()
 		self.isSelfRegistrationEnabled = isSelfRegistrationEnabled
 		super.init()
 
@@ -47,6 +56,20 @@ public final class TableDirector: NSObject {
 		configurator.configure(view: headerFooterView)
 		return headerFooterView
 	}
+
+	private func _changeCoverViewVisability(isSectionsEmpty: Bool) {
+		if let coverViewParams = _defaultCoverViewShowParams,
+			let tableView = _tableView,
+			isSectionsEmpty,
+			_canShowEmptyView {
+			_coverController.add(
+				view: coverViewParams.coverView,
+				to: tableView,
+				position: coverViewParams.position)
+			return
+		}
+		_coverController.hide()
+	}
 }
 
 // MARK: - TableDirectorInput
@@ -63,6 +86,23 @@ extension TableDirector: TableDirectorInput {
 
 	public func indexPath(for cell: UITableViewCell) -> IndexPath? {
 		return _tableView?.indexPath(for: cell)
+	}
+
+	public func addEmptyStateView(view: UIView, position: TableDirector.CoverView.Position) {
+		_defaultCoverViewShowParams = .init(coverView: view, position: position)
+		if _sections.isEmpty {
+			guard let tableView = _tableView else { return }
+			_coverController.add(view: view, to: tableView, position: position)
+		}
+	}
+
+	public func clearAndShowView(view: UIView, position: TableDirector.CoverView.Position) {
+		guard let tableView = _tableView else { return }
+		defer { _canShowEmptyView = true }
+		_canShowEmptyView = false
+		_sections = []
+		_tableView?.reloadData()
+		_coverController.add(view: view, to: tableView, position: position)
 	}
 }
 

@@ -33,16 +33,16 @@ final class InfoCell: UITableViewCell {
 		_titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		[
 			_titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-			_titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-			_titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 16)
+			_titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+			_titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 16)
 			].forEach { $0.isActive = true }
 
 		contentView.addSubview(_descriptionLabel)
 		_descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 		[
 			_descriptionLabel.topAnchor.constraint(equalTo: _titleLabel.bottomAnchor, constant: -8),
-			_descriptionLabel.leftAnchor.constraint(equalTo: _titleLabel.leftAnchor),
-			_descriptionLabel.rightAnchor.constraint(equalTo: _titleLabel.rightAnchor),
+			_descriptionLabel.leadingAnchor.constraint(equalTo: _titleLabel.leadingAnchor),
+			_descriptionLabel.trailingAnchor.constraint(equalTo: _titleLabel.trailingAnchor),
 			_descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
 			].forEach { $0.isActive = true }
 

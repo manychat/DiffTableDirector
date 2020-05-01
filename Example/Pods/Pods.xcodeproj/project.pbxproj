@@ -43,6 +43,11 @@
 		E274D8C6245C01B900EA11A0 /* ActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8C3245C010E00EA11A0 /* ActionHeader.swift */; };
 		E274D8C9245C0B0500EA11A0 /* TableDirector.Registrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8C7245C0AFB00EA11A0 /* TableDirector.Registrator.swift */; };
 		E274D8CC245C0C4000EA11A0 /* FromNibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8CA245C0B4E00EA11A0 /* FromNibLoadable.swift */; };
+		E274D8D2245C3D0E00EA11A0 /* TableDirector.CoverView.Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8CD245C366800EA11A0 /* TableDirector.CoverView.Position.swift */; };
+		E274D8D5245C3F7000EA11A0 /* TableDirector.CoverView.Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274D8D3245C3F6C00EA11A0 /* TableDirector.CoverView.Controller.swift */; };
+		E27F6CA3245EC2B1001F1B17 /* TableDirector.CoverView.ShowParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F6CA1245EC2A6001F1B17 /* TableDirector.CoverView.ShowParams.swift */; };
+		E29DCE432460370A00C6E853 /* TableDirector.CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE422460370A00C6E853 /* TableDirector.CoverView.swift */; };
+		E29DCE462460615900C6E853 /* TableDirectorCoverViewSizeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE452460615900C6E853 /* TableDirectorCoverViewSizeDelegate.swift */; };
 		E2C9A3D8244B168000886EE3 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D6244B164E00886EE3 /* TableSection.swift */; };
 		E2C9A3D9244B168500886EE3 /* HeaderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */; };
 		E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3DE244B20D700886EE3 /* UITableViewHeaderFooterView+Extensions.swift */; };
@@ -123,6 +128,11 @@
 		E274D8C3245C010E00EA11A0 /* ActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHeader.swift; sourceTree = "<group>"; };
 		E274D8C7245C0AFB00EA11A0 /* TableDirector.Registrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.Registrator.swift; sourceTree = "<group>"; };
 		E274D8CA245C0B4E00EA11A0 /* FromNibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromNibLoadable.swift; sourceTree = "<group>"; };
+		E274D8CD245C366800EA11A0 /* TableDirector.CoverView.Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.CoverView.Position.swift; sourceTree = "<group>"; };
+		E274D8D3245C3F6C00EA11A0 /* TableDirector.CoverView.Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.CoverView.Controller.swift; sourceTree = "<group>"; };
+		E27F6CA1245EC2A6001F1B17 /* TableDirector.CoverView.ShowParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.CoverView.ShowParams.swift; sourceTree = "<group>"; };
+		E29DCE422460370A00C6E853 /* TableDirector.CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.CoverView.swift; sourceTree = "<group>"; };
+		E29DCE452460615900C6E853 /* TableDirectorCoverViewSizeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirectorCoverViewSizeDelegate.swift; sourceTree = "<group>"; };
 		E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderConfigurator.swift; sourceTree = "<group>"; };
 		E2C9A3D6244B164E00886EE3 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		E2C9A3DA244B208600886EE3 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
@@ -318,6 +328,7 @@
 		E215CA2D24437AE800FA6617 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E29DCE442460378800C6E853 /* CoverView */,
 				E2C9A3D3244B124100886EE3 /* Header */,
 				E2C9A3D2244B120F00886EE3 /* Director */,
 				E2C9A3D1244B11F200886EE3 /* Row */,
@@ -344,6 +355,18 @@
 				E2C9A3DE244B20D700886EE3 /* UITableViewHeaderFooterView+Extensions.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E29DCE442460378800C6E853 /* CoverView */ = {
+			isa = PBXGroup;
+			children = (
+				E29DCE422460370A00C6E853 /* TableDirector.CoverView.swift */,
+				E274D8CD245C366800EA11A0 /* TableDirector.CoverView.Position.swift */,
+				E29DCE452460615900C6E853 /* TableDirectorCoverViewSizeDelegate.swift */,
+				E274D8D3245C3F6C00EA11A0 /* TableDirector.CoverView.Controller.swift */,
+				E27F6CA1245EC2A6001F1B17 /* TableDirector.CoverView.ShowParams.swift */,
+			);
+			path = CoverView;
 			sourceTree = "<group>";
 		};
 		E2C9A3D1244B11F200886EE3 /* Row */ = {
@@ -536,6 +559,7 @@
 				E215CA242443763300FA6617 /* ReusableView.swift in Sources */,
 				E215CA2C2443774000FA6617 /* TableDirectorInput.swift in Sources */,
 				E274D8C5245C016D00EA11A0 /* TableActionHeader.swift in Sources */,
+				E29DCE432460370A00C6E853 /* TableDirector.CoverView.swift in Sources */,
 				E215CA3724437AE800FA6617 /* UITableViewCell+Extension.swift in Sources */,
 				E215CA4224437B7C00FA6617 /* ActionCell.swift in Sources */,
 				E215CA4024437B4900FA6617 /* TableItemActionable.swift in Sources */,
@@ -543,12 +567,16 @@
 				E215CA3824437AE800FA6617 /* TableRow.swift in Sources */,
 				E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */,
 				E2C9A3E1244B20F900886EE3 /* TableHeader.swift in Sources */,
+				E274D8D5245C3F7000EA11A0 /* TableDirector.CoverView.Controller.swift in Sources */,
 				E274D8C9245C0B0500EA11A0 /* TableDirector.Registrator.swift in Sources */,
+				E274D8D2245C3D0E00EA11A0 /* TableDirector.CoverView.Position.swift in Sources */,
 				E215CA0A24435BBC00FA6617 /* ConfigurableCell.swift in Sources */,
+				E29DCE462460615900C6E853 /* TableDirectorCoverViewSizeDelegate.swift in Sources */,
 				E274D8CC245C0C4000EA11A0 /* FromNibLoadable.swift in Sources */,
 				E2C9A3E2244B20FE00886EE3 /* ConfigurableHeaderFooter.swift in Sources */,
 				0DB1D1C6F1E7B7442BB44EBE211DA2DF /* TableDirector-dummy.m in Sources */,
 				E2C9A3D9244B168500886EE3 /* HeaderConfigurator.swift in Sources */,
+				E27F6CA3245EC2B1001F1B17 /* TableDirector.CoverView.ShowParams.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,7 +643,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TableDirector/TableDirector-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TableDirector/TableDirector-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/TableDirector/TableDirector.modulemap";
 				PRODUCT_MODULE_NAME = TableDirector;
@@ -903,7 +931,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TableDirector/TableDirector-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TableDirector/TableDirector-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/TableDirector/TableDirector.modulemap";
 				PRODUCT_MODULE_NAME = TableDirector;

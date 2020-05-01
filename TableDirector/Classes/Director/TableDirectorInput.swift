@@ -21,4 +21,18 @@ public protocol TableDirectorInput: class {
 	/// Got index path of cell if it exist in table view
 	/// - Parameter cell: table cell to find indexPath
 	func indexPath(for cell: UITableViewCell) -> IndexPath?
+
+	/// Add view that weill be shown if table content is empty
+	/// TableDirector will retatin view, so keep it in mind
+	/// - Parameters:
+	///   - view: view to show inside table
+	///   - position: information how to place view inside table view
+	func addEmptyStateView(view: UIView, position: TableDirector.CoverView.Position)
+
+	/// Clear current table content and show info view with settings
+	/// If will replace empty view if there is any in table
+	/// - Parameters:
+	///   - view: view to show inside table
+	///   - position: information how to place view inside table view
+	func clearAndShowView(view: UIView, position: TableDirector.CoverView.Position)
 }

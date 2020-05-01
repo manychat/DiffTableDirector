@@ -21,8 +21,8 @@ final class TitleHeaderFooterView: UITableViewHeaderFooterView {
 
 		_titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		[
-			_titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: _leftRightOffset),
-			_titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: _leftRightOffset),
+			_titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: _leftRightOffset),
+			_titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: _leftRightOffset),
 			_titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
 			_titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 			_titleLabel.heightAnchor.constraint(equalToConstant: _height)

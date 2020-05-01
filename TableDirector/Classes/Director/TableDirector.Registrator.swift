@@ -1,6 +1,6 @@
 //
 //  TableDirector.Registrator.swift
-//  Pods-TableDirector_Example
+//  TableDirector
 //
 //  Created by Aleksandr Lavrinenko on 01.05.2020.
 //

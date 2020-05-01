@@ -1,6 +1,6 @@
 //
 //  TableRow.swift
-//  Pods-TableDirector_Example
+//  TableDirector
 //
 //  Created by Aleksandr Lavrinenko on 12.04.2020.
 //

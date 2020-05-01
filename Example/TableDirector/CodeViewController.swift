@@ -42,16 +42,21 @@ class CodeViewController: UIViewController {
 		
 		[_tableView.topAnchor.constraint(equalTo: view.topAnchor),
 			_tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-			_tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-			_tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
+			_tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			_tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 			].forEach { $0.isActive = true }
 
-		feedModels = _loadFeed()
-		infoModels = _loadInfo()
+		let errorView = ErrorView(
+			title: "Error loading data",
+			description: "You can try one more time, sometimes it helps",
+			actions: [ErrorView.Action(title: "Reload data", action: {
+				self.feedModels = self._loadFeed()
+				self.infoModels = self._loadInfo()
 
-		let sections = _createSections(feedModels: feedModels, infoModels: infoModels)
-		_tableDirector.reload(with: sections)
-
+				let sections = self._createSections(feedModels: self.feedModels, infoModels: self.infoModels)
+				self._tableDirector.reload(with: sections)
+			})])
+		self._tableDirector.addEmptyStateView(view: errorView, position: .default)
 	}
 
 

@@ -24,6 +24,10 @@
 		E215CA4624437C2D00FA6617 /* CellPressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4524437C2D00FA6617 /* CellPressable.swift */; };
 		E215CA4824437DE800FA6617 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4724437DE800FA6617 /* FeedModel.swift */; };
 		E215CA4B24437E3100FA6617 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E215CA4A24437E3100FA6617 /* InfoModel.swift */; };
+		E27F6CA5245EC45A001F1B17 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F6CA4245EC45A001F1B17 /* ErrorView.swift */; };
+		E27F6CA9245EC48A001F1B17 /* RecoverableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F6CA6245EC48A001F1B17 /* RecoverableButton.swift */; };
+		E27F6CAA245EC48A001F1B17 /* ButtonCornerRadiusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F6CA7245EC48A001F1B17 /* ButtonCornerRadiusable.swift */; };
+		E27F6CAB245EC48A001F1B17 /* TouchUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F6CA8245EC48A001F1B17 /* TouchUpButton.swift */; };
 		E2C9A3E5244B22A700886EE3 /* TitleHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3E4244B22A700886EE3 /* TitleHeaderFooterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +68,10 @@
 		E215CA4524437C2D00FA6617 /* CellPressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPressable.swift; sourceTree = "<group>"; };
 		E215CA4724437DE800FA6617 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		E215CA4A24437E3100FA6617 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		E27F6CA4245EC45A001F1B17 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E27F6CA6245EC48A001F1B17 /* RecoverableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverableButton.swift; sourceTree = "<group>"; };
+		E27F6CA7245EC48A001F1B17 /* ButtonCornerRadiusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCornerRadiusable.swift; sourceTree = "<group>"; };
+		E27F6CA8245EC48A001F1B17 /* TouchUpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchUpButton.swift; sourceTree = "<group>"; };
 		E2C9A3E4244B22A700886EE3 /* TitleHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderFooterView.swift; sourceTree = "<group>"; };
 		EB0031257D3D52A2D2FC797B /* Pods-TableDirector_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableDirector_Example.debug.xcconfig"; path = "Target Support Files/Pods-TableDirector_Example/Pods-TableDirector_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EFED8A4A66F91066D3113DCB /* Pods_TableDirector_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableDirector_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +130,7 @@
 		607FACD21AFB9204008FA782 /* Example for TableDirector */ = {
 			isa = PBXGroup;
 			children = (
+				E29DCE3E24601FE800C6E853 /* ErroView */,
 				E2C9A3E3244B228F00886EE3 /* HeaderFooterView */,
 				E215CA4924437DEB00FA6617 /* Models */,
 				E215CA06244353A000FA6617 /* Resources */,
@@ -216,6 +225,17 @@
 				E215CA4A24437E3100FA6617 /* InfoModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E29DCE3E24601FE800C6E853 /* ErroView */ = {
+			isa = PBXGroup;
+			children = (
+				E27F6CA7245EC48A001F1B17 /* ButtonCornerRadiusable.swift */,
+				E27F6CA6245EC48A001F1B17 /* RecoverableButton.swift */,
+				E27F6CA8245EC48A001F1B17 /* TouchUpButton.swift */,
+				E27F6CA4245EC45A001F1B17 /* ErrorView.swift */,
+			);
+			name = ErroView;
 			sourceTree = "<group>";
 		};
 		E2C9A3E3244B228F00886EE3 /* HeaderFooterView */ = {
@@ -431,11 +451,15 @@
 			files = (
 				E215CA0E24435D0900FA6617 /* FeedViewModel.swift in Sources */,
 				E215CA4824437DE800FA6617 /* FeedModel.swift in Sources */,
+				E27F6CAB245EC48A001F1B17 /* TouchUpButton.swift in Sources */,
 				E215C9FC24434FD300FA6617 /* CodeViewController.swift in Sources */,
 				E215C9FF244350A400FA6617 /* FeedCell.swift in Sources */,
+				E27F6CAA245EC48A001F1B17 /* ButtonCornerRadiusable.swift in Sources */,
 				607FACD81AFB9204008FA782 /* StoryboardViewController.swift in Sources */,
 				E2C9A3E5244B22A700886EE3 /* TitleHeaderFooterView.swift in Sources */,
+				E27F6CA9245EC48A001F1B17 /* RecoverableButton.swift in Sources */,
 				E215CA4B24437E3100FA6617 /* InfoModel.swift in Sources */,
+				E27F6CA5245EC45A001F1B17 /* ErrorView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				E215CA0C24435C1000FA6617 /* InfoViewModel.swift in Sources */,
 				E215CA01244350AE00FA6617 /* InfoCell.swift in Sources */,
@@ -592,6 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TableDirector/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -607,6 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TableDirector/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
