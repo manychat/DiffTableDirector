@@ -9,8 +9,9 @@ import UIKit
 
 // We have to inheritance NSObject - tableView delegates require it
 /// Perform all work with table view
-public class TableDirector: NSObject {
+public final class TableDirector: NSObject {
 	private let _registrator: Registrator
+	private let _boundsCrossObserver: ScrollViewBoundsCrossObserver
 	private let _coverController: CoverView.Controller
 	private var _sections: [TableSection] = [] {
 		didSet {
@@ -26,11 +27,29 @@ public class TableDirector: NSObject {
 	// Give us ability to switch off self registration
 	public var isSelfRegistrationEnabled: Bool
 
+	public var topCrossObserver: ThresholdCrossObserver? {
+		set {
+			_boundsCrossObserver.topCrossObserver = newValue
+		}
+		get {
+			_boundsCrossObserver.topCrossObserver
+		}
+	}
+	public var bottomCrossObserver: ThresholdCrossObserver? {
+		set {
+			_boundsCrossObserver.bottomCrossObserver = newValue
+		}
+		get {
+			_boundsCrossObserver.bottomCrossObserver
+		}
+	}
+
 	/// Create instance with table view
 	/// - Parameter tableView: table view to controll
 	public init(tableView: UITableView, isSelfRegistrationEnabled: Bool = true) {
 		self._tableView = tableView
 		self._registrator = Registrator(tableView: tableView)
+		self._boundsCrossObserver = ScrollViewBoundsCrossObserver(scrollView: tableView)
 		self._coverController = CoverView.Controller()
 		self.isSelfRegistrationEnabled = isSelfRegistrationEnabled
 		super.init()

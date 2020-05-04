@@ -23,6 +23,17 @@ class StoryboardViewController: UIViewController {
         super.viewDidLoad()
 
 		_tableDirector = TableDirector(tableView: tableView)
+		_tableDirector?.topCrossObserver = CrossObserver(didCross: {
+			print("did cross top bound")
+		}, didReturn: {
+			print("did return in bound from top")
+		})
+
+		_tableDirector?.bottomCrossObserver = CrossObserver(didCross: {
+			print("did cross bottom bound")
+		}, didReturn: {
+			print("did return in bound from bottom")
+		}, additionalOffset: 83)
 
 		feedModels = _loadFeed()
 		infoModels = _loadInfo()
@@ -33,7 +44,40 @@ class StoryboardViewController: UIViewController {
 
 	private func _loadFeed() -> [FeedModel] {
 		return [
-			.init(title: "Title", content: "Description", isMine: true)
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
+			.init(title: "Title", content: "Description", isMine: true),
 		]
 	}
 

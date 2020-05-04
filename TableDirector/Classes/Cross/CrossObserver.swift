@@ -7,23 +7,26 @@
 
 import Foundation
 
-public protocol CrossObserver {
-	func scrollViewDidCrossBorder(scrollView: UIScrollView)
-	func scrollViewDidReturnUnderBorder(scrollView: UIScrollView)
+public struct CrossObserver {
+	public let didCross: () -> Void
+	public let didReturn: () -> Void
+	public let additionalOffset: CGFloat
+
+	public init(didCross: @escaping () -> Void, didReturn: @escaping () -> Void, additionalOffset: CGFloat = 0) {
+		self.didCross = didCross
+		self.didReturn = didReturn
+
+		self.additionalOffset = additionalOffset
+	}
 }
 
-public struct SimpleCrossObserver {
-	let didCross: () -> Void
-	let didReturn: () -> Void
-}
-
-// MARK: - CrossObserver
-extension SimpleCrossObserver: CrossObserver {
-	public func scrollViewDidCrossBorder(scrollView: UIScrollView) {
+// MARK: - ThresholdCrossObserver
+extension CrossObserver: ThresholdCrossObserver {
+	public func scrollViewDidCrossThreshold(scrollView: UIScrollView, offset: CGFloat) {
 		didCross()
 	}
 
-	public func scrollViewDidReturnUnderBorder(scrollView: UIScrollView) {
+	public func scrollViewDidReturnUnderThreshold(scrollView: UIScrollView, offset: CGFloat) {
 		didReturn()
 	}
 }

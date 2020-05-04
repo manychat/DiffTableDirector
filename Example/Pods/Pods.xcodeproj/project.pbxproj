@@ -48,11 +48,11 @@
 		E27F6CA3245EC2B1001F1B17 /* TableDirector.CoverView.ShowParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F6CA1245EC2A6001F1B17 /* TableDirector.CoverView.ShowParams.swift */; };
 		E29DCE432460370A00C6E853 /* TableDirector.CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE422460370A00C6E853 /* TableDirector.CoverView.swift */; };
 		E29DCE462460615900C6E853 /* TableDirectorCoverViewSizeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE452460615900C6E853 /* TableDirectorCoverViewSizeDelegate.swift */; };
-		E29DCE4824606EDC00C6E853 /* PaginationTableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE4724606EDC00C6E853 /* PaginationTableDirector.swift */; };
-		E29DCE4A24606EEB00C6E853 /* PaginationTableDirectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE4924606EEB00C6E853 /* PaginationTableDirectorInput.swift */; };
 		E29DCE4D246071E400C6E853 /* ScrollViewCrossObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE4C246071E400C6E853 /* ScrollViewCrossObservable.swift */; };
 		E29DCE4F2460729900C6E853 /* ScrollViewBoundsCrossObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE4E2460729900C6E853 /* ScrollViewBoundsCrossObserver.swift */; };
-		E29DCE51246074B200C6E853 /* CrossObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE50246074B200C6E853 /* CrossObserver.swift */; };
+		E29DCE51246074B200C6E853 /* ThresholdCrossObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE50246074B200C6E853 /* ThresholdCrossObserver.swift */; };
+		E29DCE53246079CC00C6E853 /* CrossObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DCE52246079CC00C6E853 /* CrossObserver.swift */; };
+		E2AC1FDA2461B40A006C8A0A /* BaseThresholdCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AC1FD82461B3FD006C8A0A /* BaseThresholdCalculator.swift */; };
 		E2C9A3D8244B168000886EE3 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D6244B164E00886EE3 /* TableSection.swift */; };
 		E2C9A3D9244B168500886EE3 /* HeaderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */; };
 		E2C9A3E0244B20F500886EE3 /* UITableViewHeaderFooterView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3DE244B20D700886EE3 /* UITableViewHeaderFooterView+Extensions.swift */; };
@@ -138,11 +138,11 @@
 		E27F6CA1245EC2A6001F1B17 /* TableDirector.CoverView.ShowParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.CoverView.ShowParams.swift; sourceTree = "<group>"; };
 		E29DCE422460370A00C6E853 /* TableDirector.CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.CoverView.swift; sourceTree = "<group>"; };
 		E29DCE452460615900C6E853 /* TableDirectorCoverViewSizeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirectorCoverViewSizeDelegate.swift; sourceTree = "<group>"; };
-		E29DCE4724606EDC00C6E853 /* PaginationTableDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationTableDirector.swift; sourceTree = "<group>"; };
-		E29DCE4924606EEB00C6E853 /* PaginationTableDirectorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationTableDirectorInput.swift; sourceTree = "<group>"; };
 		E29DCE4C246071E400C6E853 /* ScrollViewCrossObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewCrossObservable.swift; sourceTree = "<group>"; };
 		E29DCE4E2460729900C6E853 /* ScrollViewBoundsCrossObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewBoundsCrossObserver.swift; sourceTree = "<group>"; };
-		E29DCE50246074B200C6E853 /* CrossObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossObserver.swift; sourceTree = "<group>"; };
+		E29DCE50246074B200C6E853 /* ThresholdCrossObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdCrossObserver.swift; sourceTree = "<group>"; };
+		E29DCE52246079CC00C6E853 /* CrossObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossObserver.swift; sourceTree = "<group>"; };
+		E2AC1FD82461B3FD006C8A0A /* BaseThresholdCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseThresholdCalculator.swift; sourceTree = "<group>"; };
 		E2C9A3D4244B127200886EE3 /* HeaderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderConfigurator.swift; sourceTree = "<group>"; };
 		E2C9A3D6244B164E00886EE3 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		E2C9A3DA244B208600886EE3 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
@@ -383,9 +383,11 @@
 		E29DCE4B246071CE00C6E853 /* Cross */ = {
 			isa = PBXGroup;
 			children = (
-				E29DCE50246074B200C6E853 /* CrossObserver.swift */,
+				E29DCE50246074B200C6E853 /* ThresholdCrossObserver.swift */,
+				E29DCE52246079CC00C6E853 /* CrossObserver.swift */,
 				E29DCE4C246071E400C6E853 /* ScrollViewCrossObservable.swift */,
 				E29DCE4E2460729900C6E853 /* ScrollViewBoundsCrossObserver.swift */,
+				E2AC1FD82461B3FD006C8A0A /* BaseThresholdCalculator.swift */,
 			);
 			path = Cross;
 			sourceTree = "<group>";
@@ -405,8 +407,6 @@
 				E274D8C7245C0AFB00EA11A0 /* TableDirector.Registrator.swift */,
 				E215CA27244376F500FA6617 /* TableDirector.swift */,
 				E215CA2B2443774000FA6617 /* TableDirectorInput.swift */,
-				E29DCE4724606EDC00C6E853 /* PaginationTableDirector.swift */,
-				E29DCE4924606EEB00C6E853 /* PaginationTableDirectorInput.swift */,
 			);
 			path = TableDirectors;
 			sourceTree = "<group>";
@@ -577,16 +577,16 @@
 			files = (
 				E215CA132443606500FA6617 /* CellConfigurator.swift in Sources */,
 				E215CA4424437BA300FA6617 /* TableActionRow.swift in Sources */,
-				E29DCE51246074B200C6E853 /* CrossObserver.swift in Sources */,
-				E29DCE4A24606EEB00C6E853 /* PaginationTableDirectorInput.swift in Sources */,
+				E29DCE51246074B200C6E853 /* ThresholdCrossObserver.swift in Sources */,
+				E29DCE53246079CC00C6E853 /* CrossObserver.swift in Sources */,
 				E29DCE4D246071E400C6E853 /* ScrollViewCrossObservable.swift in Sources */,
 				E274D8C6245C01B900EA11A0 /* ActionHeader.swift in Sources */,
 				E2C9A3D8244B168000886EE3 /* TableSection.swift in Sources */,
 				E215CA242443763300FA6617 /* ReusableView.swift in Sources */,
 				E215CA2C2443774000FA6617 /* TableDirectorInput.swift in Sources */,
+				E2AC1FDA2461B40A006C8A0A /* BaseThresholdCalculator.swift in Sources */,
 				E274D8C5245C016D00EA11A0 /* TableActionHeader.swift in Sources */,
 				E29DCE432460370A00C6E853 /* TableDirector.CoverView.swift in Sources */,
-				E29DCE4824606EDC00C6E853 /* PaginationTableDirector.swift in Sources */,
 				E29DCE4F2460729900C6E853 /* ScrollViewBoundsCrossObserver.swift in Sources */,
 				E215CA3724437AE800FA6617 /* UITableViewCell+Extension.swift in Sources */,
 				E215CA4224437B7C00FA6617 /* ActionCell.swift in Sources */,

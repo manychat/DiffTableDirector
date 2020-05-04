@@ -9,6 +9,10 @@ import Foundation
 
 /// Interface for TableDirector. Provides all nessasry operation for users
 public protocol TableDirectorInput: class {
+	var topCrossObserver: ThresholdCrossObserver? { get set }
+	var bottomCrossObserver: ThresholdCrossObserver? { get set }
+
+	var isSelfRegistrationEnabled: Bool { get set }
 
 	/// Reload table view with provided rows
 	/// - Parameter rows: new table sections
