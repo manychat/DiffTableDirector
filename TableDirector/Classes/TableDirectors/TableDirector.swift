@@ -9,7 +9,7 @@ import UIKit
 
 // We have to inheritance NSObject - tableView delegates require it
 /// Perform all work with table view
-public final class TableDirector: NSObject {
+public class TableDirector: NSObject {
 	private let _registrator: Registrator
 	private let _coverController: CoverView.Controller
 	private var _sections: [TableSection] = [] {
