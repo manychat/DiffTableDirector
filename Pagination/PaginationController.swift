@@ -12,6 +12,7 @@ protocol PaginationControllerOutput: class {
 	func changeTopContentInset(newOffset: CGFloat)
 }
 
+/// Trigger pagination, handle loading view states
 public final class PaginationController {
 	private let _loader: Loader
 	private let _loadOperation: (LoadOperationHandable) -> Void
@@ -26,12 +27,22 @@ public final class PaginationController {
 
 	let direction: Direction
 
-	public var loadNext: Availability
-	public var prefetch: PrefetchStrategy
-	public var errorBehavior: ErrorBehavior
-
 	weak var output: PaginationControllerOutput?
 
+	/// Avilability of next page
+	public var loadNext: Availability
+
+	/// Prefetch algorithm
+	public var prefetch: PrefetchStrategy
+
+	/// Scroll view behavior after getting error
+	public var errorBehavior: ErrorBehavior
+
+	/// Default constructor
+	/// - Parameters:
+	///   - settings: main settings
+	///   - loader: view for loading and error process
+	///   - operation: block that will load next data
 	public init(
 		settings: Settings,
 		loader: Loader,
@@ -64,7 +75,7 @@ public final class PaginationController {
 			if prefetchChecker(tableView) {
 				_startLoading()
 			}
-		case .system:
+		case .base:
 			_systemPrefetchIfNeeded(indexPaths: indexPaths, sections: sections)
 		case .none:
 			break

@@ -8,10 +8,15 @@
 import Foundation
 
 extension PaginationController {
+	/// View and animator for pagination
 	public struct Loader {
 		let view: UIView
 		let animator: PaginationControllerLoaderAnimator
 
+		/// Default constructor
+		/// - Parameters:
+		///   - view: view that wil be shown when pagination is in progress, error and ect
+		///   - animator: animate view
 		public init(view: UIView, animator: PaginationControllerLoaderAnimator) {
 			self.view = view
 			self.animator = animator

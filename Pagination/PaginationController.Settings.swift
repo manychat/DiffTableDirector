@@ -9,19 +9,25 @@ import Foundation
 
 extension PaginationController {
 	public struct Settings {
+		/// Paginatiom direction
 		public let direction: Direction
 
+		/// How prefetch should work
 		public let prefetch: PrefetchStrategy
+
+		/// Scroll view behavior after getting error
 		public let errorBehavior: ErrorBehavior
+
+		/// Avilability of next page
 		public let loadNext: Availability
 
 		/// Create setttings for pagination controller.
-		/// For top pagination we reccomend disable prefetch
+		/// For pull to reftesh at the top we reccomend disable prefetch
 		/// - Parameters:
 		///   - direction: pagination direction
-		///   - prefetch: can prefetch content
+		///   - prefetch: prefetch algorithm
 		///   - errorBehavior: scroll view behavior after getting error
-		///   - loadNext: can load next page
+		///   - loadNext: avilability of next page
 		public init(
 			direction: Direction,
 			prefetch: PrefetchStrategy,
@@ -33,7 +39,10 @@ extension PaginationController {
 			self.loadNext = loadNext
 		}
 
-		public static let bottom: Settings = .init(direction: .down, prefetch: .system)
+		/// Default setting for bottom pagination
+		public static let bottom: Settings = .init(direction: .down, prefetch: .base)
+
+		/// Default settings for top pull to refresh
 		public static let top: Settings = .init(direction: .up, prefetch: .none)
 	}
 }

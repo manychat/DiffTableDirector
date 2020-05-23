@@ -8,9 +8,13 @@
 import Foundation
 
 extension PaginationController {
+	/// Prefet
 	public enum PrefetchStrategy {
+		/// No prefetching
 		case none
-		case system
+		/// Use apple prefetch algorithm. If it provides last cell in table - we prefetch
+		case base
+		/// Custom function calculate if we should prefetch
 		case custom((UITableView) -> Bool)
 	}
 }

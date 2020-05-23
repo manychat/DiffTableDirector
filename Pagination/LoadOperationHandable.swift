@@ -7,6 +7,11 @@
 
 import Foundation
 
+/// Handle next page response
 public protocol LoadOperationHandable {
+	///
+	/// - Parameters:
+	///   - isSuccessfull: if operation was succesfull
+	///   - canLoadNext: can paginate futher
 	func finished(isSuccessfull: Bool, canLoadNext: Bool)
 }

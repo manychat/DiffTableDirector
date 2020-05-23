@@ -8,6 +8,7 @@
 import Foundation
 
 extension PaginationController.Loader {
+	/// Loader states
 	public enum State {
 		case initial
 		case loading
