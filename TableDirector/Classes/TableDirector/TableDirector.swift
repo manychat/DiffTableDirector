@@ -13,6 +13,7 @@ public final class TableDirector: NSObject {
 	private let _registrator: Registrator
 	private let _boundsCrossObserver: ScrollViewBoundsCrossObserver
 	private let _coverController: CoverView.Controller
+	private let _sectionsComporator: SectionsComporator
 	private var _sections: [TableSection] = [] {
 		didSet {
 			_changeCoverViewVisability(isSectionsEmpty: _sections.isEmpty)
@@ -42,6 +43,7 @@ public final class TableDirector: NSObject {
 		self._registrator = Registrator(tableView: tableView)
 		self._boundsCrossObserver = ScrollViewBoundsCrossObserver(scrollView: tableView)
 		self._coverController = CoverView.Controller()
+		self._sectionsComporator = SectionsComporator()
 		self.isSelfRegistrationEnabled = isSelfRegistrationEnabled
 
 		super.init()
@@ -88,14 +90,16 @@ public final class TableDirector: NSObject {
 
 // MARK: - TableDirectorInput
 extension TableDirector: TableDirectorInput {
-	public func reload(with sections: [TableSection]) {
-		self._sections = sections
-		_tableView?.reloadData()
+	public func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule) {
+		let update = _sectionsComporator.calculateUpdate(oldSections: _sections, newSections: sections)
+		_tableView?.reload(update: update, updateSectionsBlock: {
+			self._sections = sections
+		})
 	}
 
-	public func reload(with rows: [CellConfigurator]) {
+	public func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule) {
 		self._sections = [TableSection(rows: rows)]
-		_tableView?.reloadData()
+		reload(with: _sections, reloadRule: reloadRule)
 	}
 
 	public func indexPath(for cell: UITableViewCell) -> IndexPath? {

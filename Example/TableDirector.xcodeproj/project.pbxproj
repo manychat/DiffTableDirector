@@ -27,6 +27,7 @@
 		E27F6CAA245EC48A001F1B17 /* ButtonCornerRadiusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F6CA7245EC48A001F1B17 /* ButtonCornerRadiusable.swift */; };
 		E27F6CAB245EC48A001F1B17 /* TouchUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F6CA8245EC48A001F1B17 /* TouchUpButton.swift */; };
 		E2C9A3E5244B22A700886EE3 /* TitleHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9A3E4244B22A700886EE3 /* TitleHeaderFooterView.swift */; };
+		E2E809CA247A79F8004CAAFB /* DiffableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E809C9247A79F8004CAAFB /* DiffableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		E27F6CA7245EC48A001F1B17 /* ButtonCornerRadiusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCornerRadiusable.swift; sourceTree = "<group>"; };
 		E27F6CA8245EC48A001F1B17 /* TouchUpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchUpButton.swift; sourceTree = "<group>"; };
 		E2C9A3E4244B22A700886EE3 /* TitleHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderFooterView.swift; sourceTree = "<group>"; };
+		E2E809C9247A79F8004CAAFB /* DiffableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableViewController.swift; sourceTree = "<group>"; };
 		EB0031257D3D52A2D2FC797B /* Pods-TableDirector_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableDirector_Example.debug.xcconfig"; path = "Target Support Files/Pods-TableDirector_Example/Pods-TableDirector_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EFED8A4A66F91066D3113DCB /* Pods_TableDirector_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableDirector_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,6 +184,7 @@
 			children = (
 				607FACD71AFB9204008FA782 /* StoryboardViewController.swift */,
 				E215C9FB24434FD300FA6617 /* CodeViewController.swift */,
+				E2E809C9247A79F8004CAAFB /* DiffableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -315,10 +318,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TableDirector_Example/Pods-TableDirector_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DeepDiff/DeepDiff.framework",
 				"${BUILT_PRODUCTS_DIR}/TableDirector/TableDirector.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeepDiff.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableDirector.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +381,7 @@
 				E215CA0E24435D0900FA6617 /* FeedViewModel.swift in Sources */,
 				E215CA4824437DE800FA6617 /* FeedModel.swift in Sources */,
 				E27F6CAB245EC48A001F1B17 /* TouchUpButton.swift in Sources */,
+				E2E809CA247A79F8004CAAFB /* DiffableViewController.swift in Sources */,
 				E215C9FC24434FD300FA6617 /* CodeViewController.swift in Sources */,
 				E215C9FF244350A400FA6617 /* FeedCell.swift in Sources */,
 				E27F6CAA245EC48A001F1B17 /* ButtonCornerRadiusable.swift in Sources */,

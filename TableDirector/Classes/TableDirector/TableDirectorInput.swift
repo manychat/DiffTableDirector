@@ -19,13 +19,25 @@ public protocol TableDirectorInput: class {
 	/// - Parameter paginationController: control pagination proccess
 	func add(paginationController: PaginationController)
 
-	/// Reload table view with provided rows
-	/// - Parameter rows: new table sections
+	/// Reload table view with provided sections
+	/// - Parameter sections: new table sections
 	func reload(with sections: [TableSection])
+
+	/// Reload table view with provided sections
+	/// - Parameters: -
+	///   - sections: new table sections
+	///   - reloadRule: update table rule
+	func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule)
 
 	/// Reload table view with single sections containig provider rows
 	/// - Parameter rows: new table view rows
 	func reload(with rows: [CellConfigurator])
+
+	/// Reload table view with single sections containig provider rows
+	/// - Parameters:
+	///   - rows: new table view rows
+	///   - reloadRule: update table rule
+	func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule)
 
 	/// Got index path of cell if it exist in table view
 	/// - Parameter cell: table cell to find indexPath
@@ -44,4 +56,15 @@ public protocol TableDirectorInput: class {
 	///   - view: view to show inside table
 	///   - position: information how to place view inside table view
 	func clearAndShowView(view: UIView, position: TableDirector.CoverView.Position)
+}
+
+// MARK: - Default implementation
+extension TableDirectorInput {
+	public func reload(with sections: [TableSection]) {
+		reload(with: sections, reloadRule: .fullReload)
+	}
+
+	public func reload(with rows: [CellConfigurator]) {
+		reload(with: rows, reloadRule: .fullReload)
+	}
 }

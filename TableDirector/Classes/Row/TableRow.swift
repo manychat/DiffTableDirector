@@ -12,7 +12,8 @@ import Foundation
 public final class TableRow<CellType: ConfigurableCell>: CellConfigurator where CellType: UITableViewCell {
 	public var cellClass: UITableViewCell.Type { return CellType.self }
 
-	var item: CellType.ViewModel
+	let item: CellType.ViewModel
+	public private(set) var diffableItem: DiffableItem = .randomItem
 
 	public init(item: CellType.ViewModel) {
 		self.item = item
@@ -27,5 +28,13 @@ public final class TableRow<CellType: ConfigurableCell>: CellConfigurator where 
 			fatalError()
 		}
 		cellWithType.configure(item)
+	}
+}
+
+// MARK: - CellType.ViewModel: Equatable
+extension TableRow where CellType.ViewModel: DiffableViewModel {
+	public convenience init(diffableModel: DiffableModel<CellType>) {
+		self.init(item: diffableModel.viewModel)
+		diffableItem = diffableModel.diffableItem
 	}
 }

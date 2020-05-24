@@ -3,10 +3,5 @@ platform :ios, '10.0'
 
 target 'TableDirector_Example' do
   pod 'TableDirector', :path => '../'
-
-  target 'TableDirector_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
+

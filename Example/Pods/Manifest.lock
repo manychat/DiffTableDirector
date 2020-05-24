@@ -1,6 +1,8 @@
 PODS:
+  - DeepDiff (2.3.1)
   - SwiftLint (0.37.0)
   - TableDirector (0.1.0):
+    - DeepDiff
     - SwiftLint
 
 DEPENDENCIES:
@@ -8,6 +10,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - DeepDiff
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -15,9 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  DeepDiff: e5ae6c50d0321568e4508cec5930b9f10bb293fc
   SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
-  TableDirector: c923724262579e0b318991c88a16e1846888833a
+  TableDirector: 76ec9684a4b4f9d1274d2f1df561cb01360e65d0
 
-PODFILE CHECKSUM: 38b1972148f5f19825a36f37f1c22b168c23936e
+PODFILE CHECKSUM: 664b09fa7af2e2eecb110422c17c52785aa1a711
 
 COCOAPODS: 1.9.1
