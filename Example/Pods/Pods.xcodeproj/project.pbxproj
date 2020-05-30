@@ -70,6 +70,8 @@
 		DB7C44216E84CBCEDA50693569F4EBCB /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D7D6184EB699118248F760B39256EA /* UITableView+Extensions.swift */; };
 		DD7F71C16C4F1BE71BB493D38909E9D6 /* ConfigurableHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7C4FC13424C3837AD3765783D36AC9 /* ConfigurableHeaderFooter.swift */; };
 		E0FABF10C59091431D624150D8144BAB /* ActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCD795A9A41660B053AB6CE33BC3BA8 /* ActionHeader.swift */; };
+		E22CE92D24823E6800332D73 /* AppleStructComparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CE92B2482398D00332D73 /* AppleStructComparator.swift */; };
+		E22CE9302482458800332D73 /* DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CE92E2482453A00332D73 /* DiffableDataSource.swift */; };
 		E2E809CE247A7E6C004CAAFB /* RowsComparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E809CB247A7E56004CAAFB /* RowsComparator.swift */; };
 		E2E809DE247A7EF2004CAAFB /* PaginationController.LoadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E809D0247A7EF2004CAAFB /* PaginationController.LoadResult.swift */; };
 		E2E809DF247A7EF2004CAAFB /* PaginationController.PrefetchStraregy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E809D1247A7EF2004CAAFB /* PaginationController.PrefetchStraregy.swift */; };
@@ -205,6 +207,8 @@
 		D3B4E99446AF61D37E65294FBE1C4FBB /* Pods-TableDirector_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TableDirector_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E06479B26C6659B37DFEE0AA3F279274 /* TableDirector-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TableDirector-Info.plist"; sourceTree = "<group>"; };
 		E1073781321C609B5029F46A4F9DECAF /* Array+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Sources/Shared/Array+Extensions.swift"; sourceTree = "<group>"; };
+		E22CE92B2482398D00332D73 /* AppleStructComparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStructComparator.swift; sourceTree = "<group>"; };
+		E22CE92E2482453A00332D73 /* DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSource.swift; sourceTree = "<group>"; };
 		E2E809CB247A7E56004CAAFB /* RowsComparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowsComparator.swift; sourceTree = "<group>"; };
 		E2E809D0247A7EF2004CAAFB /* PaginationController.LoadResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationController.LoadResult.swift; sourceTree = "<group>"; };
 		E2E809D1247A7EF2004CAAFB /* PaginationController.PrefetchStraregy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationController.PrefetchStraregy.swift; sourceTree = "<group>"; };
@@ -549,6 +553,8 @@
 			children = (
 				E2E809CB247A7E56004CAAFB /* RowsComparator.swift */,
 				E2E809EB247A8115004CAAFB /* SectionsComporator.swift */,
+				E22CE92B2482398D00332D73 /* AppleStructComparator.swift */,
+				E22CE92E2482453A00332D73 /* DiffableDataSource.swift */,
 				E2E809FD247A97BB004CAAFB /* CollectionUpdate.swift */,
 				E2E80A00247A97FE004CAAFB /* CollectionUpdate.Update.swift */,
 				0330D71CA79F7F0BF7C4790F4DF4DD38 /* DiffableModel.swift */,
@@ -751,6 +757,7 @@
 				D1BAD548B82470DBCF473C04D41C3438 /* TableDirector.CoverView.ShowParams.swift in Sources */,
 				E2E809EA247A7EF2004CAAFB /* PaginationController.ScrollPosition.swift in Sources */,
 				7ACB7309121352D59C4E2BC1C7FA3F1C /* TableDirector.CoverView.swift in Sources */,
+				E22CE9302482458800332D73 /* DiffableDataSource.swift in Sources */,
 				207BF1C2B194AF8F0771FAFE7056085D /* TableDirector.Pagination.swift in Sources */,
 				1B5916743F0E12D4250323F0AADF1826 /* TableDirector.Registrator.swift in Sources */,
 				E2E809E4247A7EF2004CAAFB /* PaginationController.Direction.swift in Sources */,
@@ -769,6 +776,7 @@
 				E2E809F9247A953D004CAAFB /* UITableView+Extensions.swift in Sources */,
 				E2E809CE247A7E6C004CAAFB /* RowsComparator.swift in Sources */,
 				E2E809F3247A9169004CAAFB /* DiffableItem.swift in Sources */,
+				E22CE92D24823E6800332D73 /* AppleStructComparator.swift in Sources */,
 				A7E979CE43362DA01FE52EB4BCC32340 /* UITableViewCell+Extension.swift in Sources */,
 				8DE417162544BDAD92B721080F859981 /* UITableViewHeaderFooterView+Extensions.swift in Sources */,
 			);

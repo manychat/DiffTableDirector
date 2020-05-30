@@ -7,7 +7,24 @@
 
 import Foundation
 
+protocol Snapshot { }
+
+@available(iOS 13.0, *)
+extension NSDiffableDataSourceSnapshot: Snapshot { }
+
 struct SectionsComporator {
+	@available(iOS 13.0, *)
+	func calculateUpdate(newSections: [TableSection]) -> Snapshot {
+		var snapshot = NSDiffableDataSourceSnapshot<AnyHeaderConfigurator, AnyCellConfigurator>()
+		newSections.forEach { section in
+			if let headerConfigurator = section.headerView {
+				snapshot.appendSections([AnyHeaderConfigurator(headerConfigurator: headerConfigurator)])
+			}
+			snapshot.appendItems(section.rows.map { AnyCellConfigurator(cellConfigurator: $0) })
+		}
+		return snapshot
+	}
+
 	func calculateUpdate(oldSections: [TableSection], newSections: [TableSection]) -> CollectionUpdate {
 		let sectionsDiff = newSections.count - oldSections.count
 

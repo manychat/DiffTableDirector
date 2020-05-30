@@ -20,6 +20,7 @@ public final class TableDirector: NSObject {
 		}
 	}
 
+	private var _diffableDataSourcce: DiffableDataSource?
 	private var _defaultCoverViewShowParams: CoverView.ShowParams?
 	private var _canShowEmptyView: Bool = true
 	private lazy var pagination: Pagination? = {
@@ -48,8 +49,15 @@ public final class TableDirector: NSObject {
 
 		super.init()
 
-		tableView.delegate = self
-		tableView.dataSource = self
+		if #available(iOS 13.0, *) {
+			_diffableDataSourcce = DiffableTableViewDataSource(
+			tableView: tableView) { [weak self] (tableView, indexPath, cellConfigurator) -> UITableViewCell? in
+				return self?._cell(in: tableView, indexPath: indexPath, configurator: cellConfigurator.cellConfigurator)
+			}
+		} else {
+			tableView.delegate = self
+			tableView.dataSource = self
+		}
 
 		// We need to provide some height or in case your return automaticDimension height for header/footer
 		// viewForHeaderInSection/viewForFooterInSection won't trigger
@@ -86,11 +94,27 @@ public final class TableDirector: NSObject {
 		}
 		_coverController.hide()
 	}
+
+	private func _cell(in tableView: UITableView, indexPath: IndexPath, configurator: CellConfigurator) -> UITableViewCell {
+		if isSelfRegistrationEnabled {
+			_registrator.registerIfNeeded(cellClass: configurator.cellClass)
+		}
+		let cell = tableView.dequeueReusableCell(
+			withIdentifier: configurator.cellClass.reuseIdentifier,
+			for: indexPath)
+		configurator.configure(cell: cell)
+		return cell
+	}
 }
 
 // MARK: - TableDirectorInput
 extension TableDirector: TableDirectorInput {
 	public func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule) {
+		if #available(iOS 13.0, *) {
+			let snapshot = _sectionsComporator.calculateUpdate(newSections: sections)
+			_diffableDataSourcce?.apply(snapshot: snapshot)
+			return
+		}
 		let update = _sectionsComporator.calculateUpdate(oldSections: _sections, newSections: sections)
 		_tableView?.reload(update: update, updateSectionsBlock: {
 			self._sections = sections
@@ -98,8 +122,8 @@ extension TableDirector: TableDirectorInput {
 	}
 
 	public func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule) {
-		self._sections = [TableSection(rows: rows)]
-		reload(with: _sections, reloadRule: reloadRule)
+		let sections = [TableSection(rows: rows)]
+		reload(with: sections, reloadRule: reloadRule)
 	}
 
 	public func indexPath(for cell: UITableViewCell) -> IndexPath? {
@@ -149,14 +173,7 @@ extension TableDirector: UITableViewDelegate & UITableViewDataSource {
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let item = _sections[indexPath.section].rows[indexPath.row]
-		if isSelfRegistrationEnabled {
-			_registrator.registerIfNeeded(cellClass: item.cellClass)
-		}
-		let cell = tableView.dequeueReusableCell(
-			withIdentifier: item.cellClass.reuseIdentifier,
-			for: indexPath)
-		item.configure(cell: cell)
-		return cell
+		return _cell(in: tableView, indexPath: indexPath, configurator: item)
 	}
 
 	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

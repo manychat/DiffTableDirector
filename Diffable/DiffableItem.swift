@@ -17,6 +17,6 @@ public struct DiffableItem: DiffableCollection {
 
 	static var randomItem: DiffableItem {
 		let diffId = UUID().uuidString
-		return DiffableItem(diffId: diffId, diffableKeys: [diffId: diffId])
+		return DiffableItem(diffId: diffId, diffableKeys: [:])
 	}
 }
