@@ -18,6 +18,7 @@ class StoryboardViewController: UIViewController {
 	var feedModels: [FeedModel] = []
 	var infoModels: [InfoModel] = []
 
+	var timer: Timer!
 	// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,13 @@ class StoryboardViewController: UIViewController {
 		feedModels = _loadFeed()
 		infoModels = _loadInfo()
 
-		let sections = _createSections(feedModels: feedModels, infoModels: infoModels)
-		_tableDirector?.reload(with: sections)
+		let sections = self._createSections(
+			feedModels: self.feedModels,
+			infoModels: self.infoModels)
+		self._tableDirector?.reload(
+			with: sections,
+			reloadRule: .calculateReloadAsync(queue: DispatchQueue.global()))
+		
 		let bottomPaginationController = PaginationController(
 			settings: .bottom,
 			loader: .deafult) { (handler) in
@@ -59,83 +65,70 @@ class StoryboardViewController: UIViewController {
 		self._tableDirector?.add(paginationController: topPaginationController)
     }
 
+	// MARK: - Fetch data
 	private func _loadFeed() -> [FeedModel] {
-		return [
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-			.init(title: "Title", content: "Description", isMine: true),
-		]
+		return (0..<100).map { (index)  in
+			let randomNumber = Double.random(in: Range(uncheckedBounds: (lower: 1, upper: 2)))
+			return FeedModel(
+				id: "\(index) \(randomNumber)",
+				title: "Title \(index)",
+				content: "Description",
+				isMine: true)
+		}
 	}
 
 	private func _loadInfo() -> [InfoModel] {
 		return [
 			.init(title: "Info Title", content: "Pressabe info cell"),
-			.init(title: "Info Title 2", content: "Info content")
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 3", content: "Info content"),
+			.init(title: "Info Title 4", content: "Info content"),
+			.init(title: "Info Title 5", content: "Info content"),
+			.init(title: "Info Title 6", content: "Info content"),
+			.init(title: "Info Title 7", content: "Info content"),
+			.init(title: "Info Title 8", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
+			.init(title: "Info Title 2", content: "Info content"),
 		]
 	}
 
+	// MARK: - Sections
 	private func _createSections(feedModels: [FeedModel], infoModels: [InfoModel]) -> [TableSection] {
 		let placeholderImage = UIImage(named: "placeholder")
-		let infoRows = infoModels.map { (infoModel) in
-			return TableActionRow<InfoCell>(item: .init(title: infoModel.title, content: infoModel.content), delegate: self)
+		let infoRows = infoModels.map { (infoModel) -> TableActionRow<InfoCell> in
+			return TableActionRow<InfoCell>(
+				diffableModel: .init(
+					diffId: UUID().uuidString,
+					viewModel: .init(title: infoModel.title, content: infoModel.content)),
+				delegate: self)
 		}
 		let infoHeader = TableHeader<TitleHeaderFooterView>(item: "Info")
 		
 		let feedRows = feedModels.map { (feedModel: FeedModel) -> TableRow<FeedCell> in
-			let viewModel = FeedViewModel(title: feedModel.title, content: feedModel.content, image: placeholderImage)
-			return TableRow<FeedCell>(item: viewModel)
+			return TableRow<FeedCell>(
+				diffableModel: .init(
+					diffId: feedModel.id,
+					viewModel: .init(title: feedModel.title, content: feedModel.content, image: placeholderImage)))
 		}
-		return [TableSection(rows: infoRows, headerView: infoHeader), TableSection(rows: feedRows)]
+
+		return [TableSection(
+			rows: (infoRows as [CellConfigurator] + feedRows as [CellConfigurator]).shuffled(), headerView: infoHeader),
+				TableSection(
+					rows: (infoRows as [CellConfigurator] + feedRows as [CellConfigurator]).shuffled())]
 	}
 }
 

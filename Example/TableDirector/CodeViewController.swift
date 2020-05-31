@@ -62,7 +62,7 @@ class CodeViewController: UIViewController {
 
 	private func _loadFeed() -> [FeedModel] {
 		return [
-			.init(title: "Title", content: "Description", isMine: true)
+			.init(id: "1", title: "Title", content: "Description", isMine: true)
 		]
 	}
 

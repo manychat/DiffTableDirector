@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DiffableItem: DiffableCollection {
+public struct DiffInformation: DiffableCollection {
 	public let diffId: String
 	let diffableKeys: [String: String]
 
@@ -15,8 +15,8 @@ public struct DiffableItem: DiffableCollection {
 		return left.diffableKeys == right.diffableKeys
 	}
 
-	static var randomItem: DiffableItem {
+	static var randomItem: DiffInformation {
 		let diffId = UUID().uuidString
-		return DiffableItem(diffId: diffId, diffableKeys: [:])
+		return DiffInformation(diffId: diffId, diffableKeys: [:])
 	}
 }

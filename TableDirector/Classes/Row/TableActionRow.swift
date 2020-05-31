@@ -11,7 +11,7 @@ public final class TableActionRow<CellType: ActionCell>: CellConfigurator where 
 	public var cellClass: UITableViewCell.Type { return CellType.self }
 
 	let item: CellType.ViewModel
-	public private(set) var diffableItem: DiffableItem = .randomItem
+	public private(set) var diffableItem: DiffInformation = .randomItem
 	// Delegate must be weak or we gonna have big memory issue
 	weak var delegate: AnyObject?
 

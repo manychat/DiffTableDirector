@@ -10,6 +10,7 @@ import UIKit
 /// Configure Header with view model
 public protocol HeaderConfigurator {
 	var viewClass: UITableViewHeaderFooterView.Type { get }
+	var diffableItem: DiffInformation { get }
 
 	func configure(view: UITableViewHeaderFooterView)
 }

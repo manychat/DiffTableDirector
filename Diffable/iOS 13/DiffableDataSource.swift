@@ -7,8 +7,6 @@
 
 import Foundation
 
-protocol DiffableDataSource {
-	func headerProviderMethod(tableView: UITableView, indexPath: IndexPath, anyHeaderConfigurator: AnyHeaderConfigurator)
-
+protocol DiffableDataSource {	
 	func apply(snapshot: Snapshot)
 }

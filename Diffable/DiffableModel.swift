@@ -13,7 +13,12 @@ where CellType: UITableViewCell, CellType.ViewModel: DiffableViewModel {
 	public let diffId: String
 	public let viewModel: CellType.ViewModel
 
-	var diffableItem: DiffableItem {
-		return DiffableItem(diffId: diffId, diffableKeys: viewModel.diffableKeys)
+	public init(diffId: String, viewModel: CellType.ViewModel) {
+		self.diffId = diffId
+		self.viewModel = viewModel
+	}
+
+	var diffableItem: DiffInformation {
+		return DiffInformation(diffId: diffId, diffableKeys: viewModel.diffableKeys)
 	}
 }

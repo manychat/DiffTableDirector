@@ -35,9 +35,9 @@ extension UITableView {
 		}
 	}
 
-	func reload(update: CollectionUpdate, updateSectionsBlock: @escaping () -> Void) {
+	func reload(update: CollectionUpdate, animated: Bool, updateSectionsBlock: @escaping () -> Void) {
 		DispatchQueue.asyncOnMainIfNeeded { [update] in
-			UIView.setAnimationsEnabled(false)
+			UIView.setAnimationsEnabled(animated)
 			if #available(iOS 11.0, *) {
 				self.performBatchUpdates({
 					updateSectionsBlock()
@@ -47,7 +47,7 @@ extension UITableView {
 					self.performBatchUpdates({
 						self._reloadSection(update: update)
 					}, completion: { _ in
-						UIView.setAnimationsEnabled(true)
+						UIView.setAnimationsEnabled(animated)
 					})
 				})
 			} else {

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import TableDirector
 
-struct FeedViewModel {
+struct FeedViewModel: DiffableViewModel {
 	let title: String
 	let content: String
 	let image: UIImage?

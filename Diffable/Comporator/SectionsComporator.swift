@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol Snapshot { }
-
-@available(iOS 13.0, *)
-extension NSDiffableDataSourceSnapshot: Snapshot { }
-
 struct SectionsComporator {
 	@available(iOS 13.0, *)
 	func calculateUpdate(newSections: [TableSection]) -> Snapshot {
@@ -40,7 +35,7 @@ struct SectionsComporator {
 			guard let oldSection = oldSections[safe: index] else {
 				continue
 			}
-			let comparator = RowsComparator<DiffableItem>(
+			let comparator = RowsComparator<DiffInformation>(
 				old: oldSection.rows.map({ $0.diffableItem }),
 				new: section.rows.map({ $0.diffableItem }),
 				section: index)

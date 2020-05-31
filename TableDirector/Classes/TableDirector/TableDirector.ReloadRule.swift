@@ -15,6 +15,6 @@ extension TableDirector {
 		/// Calculate diff on main thread, reload updated cells
 		case calculateReloadSync
 		/// Calculate diff on background thread, reload updated cells
-		case calculateReloadAsync
+		case calculateReloadAsync(queue: DispatchQueue)
 	}
 }

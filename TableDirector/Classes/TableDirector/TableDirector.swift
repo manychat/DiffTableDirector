@@ -49,16 +49,21 @@ public final class TableDirector: NSObject {
 
 		super.init()
 
+		_setDataSourceAndDelegate(for: tableView)
+		_setupEstimatedHeight(tableView: tableView)
+	}
+
+	// MARK: - Table view settings
+	private func _setDataSourceAndDelegate(for tableView: UITableView) {
 		if #available(iOS 13.0, *) {
-			_diffableDataSourcce = DiffableTableViewDataSource(
-			tableView: tableView) { [weak self] (tableView, indexPath, cellConfigurator) -> UITableViewCell? in
-				return self?._cell(in: tableView, indexPath: indexPath, configurator: cellConfigurator.cellConfigurator)
-			}
+			_diffableDataSourcce = DiffableTableViewDataSource(tableView: tableView, cellProvider: _createCell)
 		} else {
-			tableView.delegate = self
 			tableView.dataSource = self
 		}
+		tableView.delegate = self
+	}
 
+	private func _setupEstimatedHeight(tableView: UITableView) {
 		// We need to provide some height or in case your return automaticDimension height for header/footer
 		// viewForHeaderInSection/viewForFooterInSection won't trigger
 		tableView.estimatedSectionFooterHeight = 1
@@ -66,19 +71,6 @@ public final class TableDirector: NSObject {
 
 		// Providing base extimate height for rows remove lags in scroll indicator and increase performance
 		tableView.estimatedRowHeight = 1
-	}
-
-	private func _createHeaderFooterView(with configurator: HeaderConfigurator, tableView: UITableView) -> UIView? {
-		if isSelfRegistrationEnabled {
-			_registrator.registerIfNeeded(headerFooterClass: configurator.viewClass)
-		}
-		let reuseId = configurator.viewClass.reuseIdentifier
-		guard let headerFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseId) else {
-			assertionFailure("Probably you forgot to register \(reuseId) in tableView")
-			return nil
-		}
-		configurator.configure(view: headerFooterView)
-		return headerFooterView
 	}
 
 	private func _changeCoverViewVisability(isSectionsEmpty: Bool) {
@@ -95,7 +87,47 @@ public final class TableDirector: NSObject {
 		_coverController.hide()
 	}
 
-	private func _cell(in tableView: UITableView, indexPath: IndexPath, configurator: CellConfigurator) -> UITableViewCell {
+	// MARK: - Reload
+	private func _reload(with sections: [TableSection]) {
+		if #available(iOS 13.0, *) {
+			let snapshot = _sectionsComporator.calculateUpdate(newSections: sections)
+			self._sections = sections
+			_diffableDataSourcce?.apply(snapshot: snapshot)
+			return
+		}
+		let update = _sectionsComporator.calculateUpdate(oldSections: _sections, newSections: sections)
+		_tableView?.reload(update: update, animated: true, updateSectionsBlock: {
+			self._sections = sections
+		})
+	}
+
+	// MARK: - Create reusabel views
+	private func _createHeaderFooterView(with configurator: HeaderConfigurator, tableView: UITableView) -> UIView? {
+		if isSelfRegistrationEnabled {
+			_registrator.registerIfNeeded(headerFooterClass: configurator.viewClass)
+		}
+		let reuseId = configurator.viewClass.reuseIdentifier
+		guard let headerFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseId) else {
+			assertionFailure("Probably you forgot to register \(reuseId) in tableView")
+			return nil
+		}
+		configurator.configure(view: headerFooterView)
+		return headerFooterView
+	}
+
+	private func _createCell(
+		tableView: UITableView,
+		indexPath: IndexPath,
+		anyConfigurator: AnyCellConfigurator)
+		-> UITableViewCell? {
+		return _cell(in: tableView, indexPath: indexPath, configurator: anyConfigurator.cellConfigurator)
+	}
+
+	private func _cell(
+		in tableView: UITableView,
+		indexPath: IndexPath,
+		configurator: CellConfigurator)
+		-> UITableViewCell {
 		if isSelfRegistrationEnabled {
 			_registrator.registerIfNeeded(cellClass: configurator.cellClass)
 		}
@@ -110,15 +142,19 @@ public final class TableDirector: NSObject {
 // MARK: - TableDirectorInput
 extension TableDirector: TableDirectorInput {
 	public func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule) {
-		if #available(iOS 13.0, *) {
-			let snapshot = _sectionsComporator.calculateUpdate(newSections: sections)
-			_diffableDataSourcce?.apply(snapshot: snapshot)
-			return
+		switch reloadRule {
+		case .fullReload:
+			if #available(iOS 13.0, *) {
+				return _reload(with: sections)
+			}
+			_tableView?.reloadData()
+		case .calculateReloadSync:
+			_reload(with: sections)
+		case .calculateReloadAsync(let queue):
+			queue.async {
+				self._reload(with: sections)
+			}
 		}
-		let update = _sectionsComporator.calculateUpdate(oldSections: _sections, newSections: sections)
-		_tableView?.reload(update: update, updateSectionsBlock: {
-			self._sections = sections
-		})
 	}
 
 	public func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule) {

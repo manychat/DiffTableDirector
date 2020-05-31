@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import TableDirector
 
-struct InfoViewModel {
+struct InfoViewModel: DiffableViewModel {
 	let title: String
 	let content: String	
 }

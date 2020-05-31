@@ -12,6 +12,7 @@ public class TableHeader<HeaderType: ConfigurableHeaderFooter>: HeaderConfigurat
 where HeaderType: UITableViewHeaderFooterView {
 	public var viewClass: UITableViewHeaderFooterView.Type { return HeaderType.self }
 
+	public private(set) var diffableItem: DiffInformation = .randomItem
 	let item: HeaderType.ViewModel
 
 	public init(item: HeaderType.ViewModel) {
@@ -25,3 +26,12 @@ where HeaderType: UITableViewHeaderFooterView {
 		viewWithType.configure(item)
 	}
 }
+
+//// MARK: - CellType.ViewModel: Equatable
+//extension TableHeader where HeaderType.ViewModel: DiffableViewModel {
+//	public convenience init(diffableModel: DiffableModel<HeaderType>) {
+//		self.init(item: diffableModel.viewModel)
+//		diffableItem = diffableModel.diffableItem
+//	}
+//}
+

@@ -9,6 +9,7 @@
 import Foundation
 
 struct FeedModel {
+	let id: String
 	let title: String
 	let content: String
 

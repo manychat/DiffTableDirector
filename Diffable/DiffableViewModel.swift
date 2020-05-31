@@ -11,7 +11,7 @@ public protocol DiffableViewModel {
 	var diffableKeys: [String: String] { get }
 }
 
-extension DiffableViewModel {
+public extension DiffableViewModel {
 	var diffableKeys: [String: String] {
 		let mirrow = Mirror(reflecting: self)
 		return mirrow.children.reduce([:], { result, property in

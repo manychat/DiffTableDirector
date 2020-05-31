@@ -13,7 +13,7 @@ public final class TableRow<CellType: ConfigurableCell>: CellConfigurator where 
 	public var cellClass: UITableViewCell.Type { return CellType.self }
 
 	let item: CellType.ViewModel
-	public private(set) var diffableItem: DiffableItem = .randomItem
+	public private(set) var diffableItem: DiffInformation = .randomItem
 
 	public init(item: CellType.ViewModel) {
 		self.item = item
