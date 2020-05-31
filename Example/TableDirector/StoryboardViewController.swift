@@ -23,7 +23,7 @@ class StoryboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		_tableDirector = TableDirector(tableView: tableView)
+		_tableDirector = SyncTableDirector(tableView: tableView)
 		_tableDirector?.topCrossObserver = CrossObserver(didCross: {
 			print("did cross top bound")
 		}, didReturn: {
@@ -45,6 +45,7 @@ class StoryboardViewController: UIViewController {
 		self._tableDirector?.reload(
 			with: sections,
 			reloadRule: .calculateReloadAsync(queue: DispatchQueue.global()))
+
 		
 		let bottomPaginationController = PaginationController(
 			settings: .bottom,

@@ -24,7 +24,7 @@ public protocol TableDirectorInput: class {
 	func reload(with sections: [TableSection])
 
 	/// Reload table view with provided sections
-	/// - Parameters: -
+	/// - Parameters:
 	///   - sections: new table sections
 	///   - reloadRule: update table rule
 	func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule)

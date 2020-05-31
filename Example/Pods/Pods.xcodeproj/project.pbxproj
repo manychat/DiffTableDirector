@@ -98,6 +98,8 @@
 		E2FDB4B42483C5060064B762 /* Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDB4B22483C4840064B762 /* Snapshot.swift */; };
 		E2FDB4B62483C5160064B762 /* AnyCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDB4B52483C5160064B762 /* AnyCellConfigurator.swift */; };
 		E2FDB4B82483C5280064B762 /* AnyHeaderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDB4B72483C5280064B762 /* AnyHeaderConfigurator.swift */; };
+		E2FDB4BD24842CEF0064B762 /* SyncTableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDB4BB24842B1E0064B762 /* SyncTableDirector.swift */; };
+		E2FDB4C0248432040064B762 /* SyncTableDirectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDB4BE248431F00064B762 /* SyncTableDirectorInput.swift */; };
 		E65CEABB72EDF1ED25812B78126EC517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF0C6FBA72CFFEEFF843F93A3A63FED /* Foundation.framework */; };
 		F3B9710B1251FE72AD57B6F6D57A7D52 /* TableActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A1ACC2068525E511B1FED963600D90 /* TableActionRow.swift */; };
 /* End PBXBuildFile section */
@@ -238,6 +240,8 @@
 		E2FDB4B22483C4840064B762 /* Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
 		E2FDB4B52483C5160064B762 /* AnyCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCellConfigurator.swift; sourceTree = "<group>"; };
 		E2FDB4B72483C5280064B762 /* AnyHeaderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyHeaderConfigurator.swift; sourceTree = "<group>"; };
+		E2FDB4BB24842B1E0064B762 /* SyncTableDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTableDirector.swift; sourceTree = "<group>"; };
+		E2FDB4BE248431F00064B762 /* SyncTableDirectorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTableDirectorInput.swift; sourceTree = "<group>"; };
 		E9A0C47C132C300FDAAC780435A05038 /* TableDirector-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TableDirector-umbrella.h"; sourceTree = "<group>"; };
 		E9DE84F26051C9B5D53B84B8E34AEE76 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		ED703E82BF9512D0B1914A9C2DB5A312 /* TableDirector.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TableDirector.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -307,10 +311,12 @@
 			isa = PBXGroup;
 			children = (
 				64536A69FFAE14299F04CA1406E03524 /* TableDirector.swift */,
+				E2FDB4BB24842B1E0064B762 /* SyncTableDirector.swift */,
 				E2E809F4247A92BA004CAAFB /* TableDirector.ReloadRule.swift */,
 				3792F639A8710777681E66B72BB35686 /* TableDirector.Pagination.swift */,
 				BEEED27AD9888C08DCF1173552426A66 /* TableDirector.Registrator.swift */,
 				FBBEC00CA46339D576E00C2206A7C8C0 /* TableDirectorInput.swift */,
+				E2FDB4BE248431F00064B762 /* SyncTableDirectorInput.swift */,
 			);
 			name = TableDirector;
 			path = TableDirector/Classes/TableDirector;
@@ -758,6 +764,7 @@
 				0F8A56F78D1F4EBB5E7F89B21A7FBE0E /* ActionCell.swift in Sources */,
 				E0FABF10C59091431D624150D8144BAB /* ActionHeader.swift in Sources */,
 				485E81E2C9BC9C2DAF5C694A9D39F487 /* BaseThresholdCalculator.swift in Sources */,
+				E2FDB4BD24842CEF0064B762 /* SyncTableDirector.swift in Sources */,
 				9AAC7FE12CA0BCAF7AD5B263F1720370 /* CellConfigurator.swift in Sources */,
 				E2E809DF247A7EF2004CAAFB /* PaginationController.PrefetchStraregy.swift in Sources */,
 				E2E809E9247A7EF2004CAAFB /* PaginationController.Availability.swift in Sources */,
@@ -810,6 +817,7 @@
 				91295C4E7CAE2B7662DBB1B5462055C0 /* TableSection.swift in Sources */,
 				486D69C993004464C7AA33BF5FF557FF /* ThresholdCrossObserver.swift in Sources */,
 				E2E809F9247A953D004CAAFB /* UITableView+Extensions.swift in Sources */,
+				E2FDB4C0248432040064B762 /* SyncTableDirectorInput.swift in Sources */,
 				E2E809CE247A7E6C004CAAFB /* RowsComparator.swift in Sources */,
 				E2E809F3247A9169004CAAFB /* DiffInformation.swift in Sources */,
 				E22CE92D24823E6800332D73 /* DiffableTableViewDataSource.swift in Sources */,

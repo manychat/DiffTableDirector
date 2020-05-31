@@ -26,12 +26,3 @@ where HeaderType: UITableViewHeaderFooterView {
 		viewWithType.configure(item)
 	}
 }
-
-//// MARK: - CellType.ViewModel: Equatable
-//extension TableHeader where HeaderType.ViewModel: DiffableViewModel {
-//	public convenience init(diffableModel: DiffableModel<HeaderType>) {
-//		self.init(item: diffableModel.viewModel)
-//		diffableItem = diffableModel.diffableItem
-//	}
-//}
-

@@ -88,17 +88,32 @@ public final class TableDirector: NSObject {
 	}
 
 	// MARK: - Reload
-	private func _reload(with sections: [TableSection]) {
+	func reload(with sections: [TableSection], reloadRule: ReloadRule, completion: (() -> Void)?) {
+		switch reloadRule {
+		case .fullReload:
+			if #available(iOS 13.0, *) {
+				return _reload(with: sections, compeltion: completion)
+			}
+			_tableView?.reloadData()
+		case .calculateReloadSync:
+			_reload(with: sections, compeltion: completion)
+		case .calculateReloadAsync(let queue):
+			queue.async {
+				self._reload(with: sections, compeltion: completion)
+			}
+		}
+	}
+	private func _reload(with sections: [TableSection], compeltion: (() -> Void)?) {
 		if #available(iOS 13.0, *) {
 			let snapshot = _sectionsComporator.calculateUpdate(newSections: sections)
 			self._sections = sections
-			_diffableDataSourcce?.apply(snapshot: snapshot)
+			_diffableDataSourcce?.apply(snapshot: snapshot, completion: compeltion)
 			return
 		}
 		let update = _sectionsComporator.calculateUpdate(oldSections: _sections, newSections: sections)
 		_tableView?.reload(update: update, animated: true, updateSectionsBlock: {
 			self._sections = sections
-		})
+		}, completion: compeltion)
 	}
 
 	// MARK: - Create reusabel views
@@ -142,19 +157,7 @@ public final class TableDirector: NSObject {
 // MARK: - TableDirectorInput
 extension TableDirector: TableDirectorInput {
 	public func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule) {
-		switch reloadRule {
-		case .fullReload:
-			if #available(iOS 13.0, *) {
-				return _reload(with: sections)
-			}
-			_tableView?.reloadData()
-		case .calculateReloadSync:
-			_reload(with: sections)
-		case .calculateReloadAsync(let queue):
-			queue.async {
-				self._reload(with: sections)
-			}
-		}
+		reload(with: sections, reloadRule: reloadRule, completion: nil)
 	}
 
 	public func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule) {
