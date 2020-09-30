@@ -36,6 +36,8 @@ open class TableDirector: NSObject {
 	// Give us ability to switch off self registration
 	public var isSelfRegistrationEnabled: Bool
 
+	public var shouldHideSection: Bool = false
+
 	public var scrollObserable: ScrollObserverable? 
 
 	public var topCrossObserver: ThresholdCrossObserver? {
@@ -355,6 +357,10 @@ extension TableDirector: UITableViewDelegate & UITableViewDataSource {
 	public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		guard let headerConfigurator = _sections[safe: section]?.headerConfigurator else { return 0 }
 		if let viewHeight = headerConfigurator.viewHeight {
+			if shouldHideSection {
+				shouldHideSection = false
+				return CGFloat.leastNonzeroMagnitude
+			}
 			return viewHeight
 		}
 		return UITableView.automaticDimension
