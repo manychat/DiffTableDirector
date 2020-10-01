@@ -19,8 +19,11 @@ public protocol TableDirectorInput: class {
 	/// Recieve didScroll events from scroll view
 	var scrollObserable: ScrollObserverable? { get set }
 
-	/// Flat that enables automated registration. True by default
+	/// Flag that enables automated registration. True by default
 	var isSelfRegistrationEnabled: Bool { get set }
+
+	/// Flag that enables hiding table section. False by default
+	var shouldHideSection: Bool { get set }
 
 	/// Connect table director to specific table view
 	/// - Parameter tableView: table view
