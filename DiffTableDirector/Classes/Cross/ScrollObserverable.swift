@@ -11,5 +11,5 @@ import UIKit
 /// Notify about scroll view content offset changes
 public protocol ScrollObserverable {
 	func scrollViewDidScroll(scrollView: UIScrollView)
-	func scrollDidEndDragging(scrollView: UIScrollView)
+	func scrollViewDidEndScrolling(scrollView: UIScrollView)
 }

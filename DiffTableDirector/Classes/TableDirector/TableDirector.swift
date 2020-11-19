@@ -379,7 +379,13 @@ extension TableDirector: UITableViewDelegate & UITableViewDataSource {
 	}
 
 	public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-		scrollObserable?.scrollDidEndDragging(scrollView: scrollView)
+		if !decelerate {
+			scrollObserable?.scrollViewDidEndScrolling(scrollView: scrollView)
+		}
+	}
+
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+		scrollObserable?.scrollViewDidEndScrolling(scrollView: scrollView)
 	}
 
 	public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
