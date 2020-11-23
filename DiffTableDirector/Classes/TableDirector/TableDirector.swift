@@ -384,7 +384,7 @@ extension TableDirector: UITableViewDelegate & UITableViewDataSource {
 		}
 	}
 
-	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 		scrollObserable?.scrollViewDidEndScrolling(scrollView: scrollView)
 	}
 
