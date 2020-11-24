@@ -40,7 +40,7 @@ class StoryboardViewController: UIViewController {
 		infoModels = _loadInfo()
 
 		let sections = _createSections(feedModels: feedModels, infoModels: infoModels)
-		self._tableDirector?.reload(with: sections, reloadRule: .calculateReloadAsync(queue: DispatchQueue.global()))
+		self._tableDirector?.reload(with: sections)
 
 
 		let topPaginationController = PaginationController(

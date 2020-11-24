@@ -11,6 +11,7 @@ import UIKit
 open class TableDirector: NSObject {
 	private let _coverController: CoverView.Controller
 	private let _sectionsComporator: SectionsComporator
+	private let _reloadRule: TableDirector.ReloadRule
 	private var _sections: [TableSection] = []
 
 	private var _updateQueue: [() -> Void] = []
@@ -56,12 +57,19 @@ open class TableDirector: NSObject {
 		return ScrollViewBoundsCrossObserver(scrollView: tableView)
 	}()
 
-	/// Create instance with table view
-	/// - Parameter tableView: table view to controll
-	public init(tableView: UITableView? = nil, isSelfRegistrationEnabled: Bool = true) {
+	/// Create instance
+	/// - Parameters:
+	///   - tableView: table view to control
+	///   - reloadRule: how to reload table
+	///   - isSelfRegistrationEnabled: should table director automaticly register cells
+	public init(
+		tableView: UITableView? = nil,
+		reloadRule: TableDirector.ReloadRule = .calculateReloadSync,
+		isSelfRegistrationEnabled: Bool = true) {
 		self._tableView = tableView
 		self._coverController = CoverView.Controller()
 		self._sectionsComporator = SectionsComporator()
+		self._reloadRule = reloadRule
 		self.isSelfRegistrationEnabled = isSelfRegistrationEnabled
 
 		super.init()
@@ -203,27 +211,18 @@ open class TableDirector: NSObject {
 
 	// MARK: - Overridable methods
 	open func reload(with sections: [TableSection]) {
-		reload(with: sections, reloadRule: .fullReload)
+		reload(with: sections, animation: .automatic)
 	}
 
 	open func reload(with rows: [CellConfigurator]) {
-		reload(with: rows, reloadRule: .fullReload)
+		reload(with: rows, animation: .automatic)
+	}
+	open func reload(with rows: [CellConfigurator], animation: UITableView.RowAnimation) {
+		reload(with: rows, animation: animation, completion: { })
 	}
 
-	open func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule) {
-		reload(with: rows, reloadRule: reloadRule, animation: .automatic)
-	}
-
-	open func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule) {
-		reload(with: sections, reloadRule: reloadRule, animation: .automatic)
-	}
-
-	open func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule, animation: UITableView.RowAnimation) {
-		reload(with: rows, reloadRule: reloadRule, animation: animation, completion: { })
-	}
-
-	open func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule, animation: UITableView.RowAnimation) {
-		reload(with: sections, reloadRule: reloadRule, animation: animation, completion: { })
+	open func reload(with sections: [TableSection], animation: UITableView.RowAnimation) {
+		reload(with: sections, animation: animation, completion: { })
 	}
 }
 
@@ -247,7 +246,6 @@ extension TableDirector: TableDirectorInput {
 
 	public func reload(
 		with sections: [TableSection],
-		reloadRule: TableDirector.ReloadRule,
 		animation: UITableView.RowAnimation,
 		completion: @escaping () -> Void) {
 		let sections = sections.filter({ !$0.isEmpty })
@@ -267,7 +265,7 @@ extension TableDirector: TableDirectorInput {
 			if !sections.isEmpty {
 				self._coverController.hide()
 			}
-			self._reload(with: sections, reloadRule: reloadRule, animation: animation, completion: internalCompletion)
+			self._reload(with: sections, reloadRule: self._reloadRule, animation: animation, completion: internalCompletion)
 		}
 		_updateQueue.append(updateTableBlock)
 		if _updateQueue.count == 1 {
@@ -277,11 +275,10 @@ extension TableDirector: TableDirectorInput {
 
 	public func reload(
 		with rows: [CellConfigurator],
-		reloadRule: TableDirector.ReloadRule,
 		animation: UITableView.RowAnimation,
 		completion: @escaping () -> Void) {
 		let sections = [TableSection(rows: rows)]
-		reload(with: sections, reloadRule: reloadRule, animation: animation, completion: completion)
+		reload(with: sections, animation: animation, completion: completion)
 	}
 
 	public func indexPath(for cell: UITableViewCell) -> IndexPath? {
@@ -315,7 +312,7 @@ extension TableDirector: TableDirectorInput {
 
 	public func clearAndShowView(viewFactory: @escaping () -> UIView, position: TableDirector.CoverView.Position) {
 		self._canShowEmptyView = false
-		self.reload(with: [CellConfigurator](), reloadRule: .fullReload, animation: .none) { [weak self] in
+		self.reload(with: [CellConfigurator](), animation: .none) { [weak self] in
 			self?._showView(viewFactory: viewFactory, position: position)
 		}
 	}

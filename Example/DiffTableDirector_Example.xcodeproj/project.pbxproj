@@ -28,6 +28,7 @@
 		E223CA43249CD79100463256 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E223CA42249CD79100463256 /* AppDelegate.swift */; };
 		E223CA46249CD79700463256 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E223CA44249CD79700463256 /* LaunchScreen.xib */; };
 		E223CA4C249CD91B00463256 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E223CA4A249CD91B00463256 /* Main.storyboard */; };
+		E2AF13C7256D59F400D807C6 /* DiffTableDirector.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E2AF13C6256D59F400D807C6 /* DiffTableDirector.podspec */; };
 		E2FFDF8E24BB005200CF021F /* BottomPaginationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFDF8D24BB005200CF021F /* BottomPaginationController.swift */; };
 		E2FFDF9024BB026100CF021F /* PullToRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFDF8F24BB026100CF021F /* PullToRefreshController.swift */; };
 		E2FFDF9224BB02C200CF021F /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFDF9124BB02C200CF021F /* CoverViewController.swift */; };
@@ -61,6 +62,7 @@
 		E223CA42249CD79100463256 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E223CA45249CD79700463256 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E223CA4B249CD91B00463256 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E2AF13C6256D59F400D807C6 /* DiffTableDirector.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DiffTableDirector.podspec; path = ../DiffTableDirector.podspec; sourceTree = "<group>"; };
 		E2FFDF8D24BB005200CF021F /* BottomPaginationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPaginationController.swift; sourceTree = "<group>"; };
 		E2FFDF8F24BB026100CF021F /* PullToRefreshController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshController.swift; sourceTree = "<group>"; };
 		E2FFDF9124BB02C200CF021F /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		E223C9FC249CD70C00463256 = {
 			isa = PBXGroup;
 			children = (
+				E2AF13C6256D59F400D807C6 /* DiffTableDirector.podspec */,
 				E223CA07249CD70C00463256 /* DiffTableDirector_Example */,
 				E223CA06249CD70C00463256 /* Products */,
 				65C922240B76A186DB28705D /* Pods */,
@@ -356,6 +359,7 @@
 				E223CA2C249CD77700463256 /* Images.xcassets in Resources */,
 				E223CA46249CD79700463256 /* LaunchScreen.xib in Resources */,
 				E223CA28249CD77700463256 /* FeedCell.xib in Resources */,
+				E2AF13C7256D59F400D807C6 /* DiffTableDirector.podspec in Resources */,
 				E223CA4C249CD91B00463256 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,7 +586,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.8;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "MC.DiffTableDirector-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -604,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.8;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "MC.DiffTableDirector-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

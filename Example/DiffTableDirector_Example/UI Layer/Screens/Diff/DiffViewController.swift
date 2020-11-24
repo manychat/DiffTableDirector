@@ -50,27 +50,24 @@ final class DiffViewController: UIViewController {
 		 _tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 			].forEach { $0.isActive = true }
 
-		_tableDirector = TableDirector(tableView: _tableView)
+		_tableDirector = TableDirector(tableView: _tableView, reloadRule: .calculateReloadAsync(queue: .global()))
 
 		_feedModels = _loadFeed()
 
 		let rows = _createRows(feedModels: _feedModels)
-		let reloadRule = TableDirector.ReloadRule.calculateReloadAsync(queue: DispatchQueue.global())
-		_tableDirector.reload(with: rows, reloadRule: reloadRule, animation: .fade)
+		_tableDirector.reload(with: rows,  animation: .fade)
 
 		_timer = Timer(fire: Date(), interval: 1.0, repeats: true, block: { [weak self] _ in
 			guard let self = self else { return }
 			let rows = self._createRows(feedModels: self._mix(feedModels: self._feedModels))
-			let reloadRule = TableDirector.ReloadRule.calculateReloadAsync(queue: DispatchQueue.global())
-			self._tableDirector.reload(with: rows, reloadRule: reloadRule)
+			self._tableDirector.reload(with: rows)
 		})
 
 		RunLoop.main.add(_timer!, forMode: .common)
 	}
 
 	func reload(tableDirector: TableDirectorInput, rows: [CellConfigurator]) {
-		let reloadRule = TableDirector.ReloadRule.calculateReloadAsync(queue: DispatchQueue.global())
-		tableDirector.reload(with: rows, reloadRule: reloadRule, animation: .fade)
+		tableDirector.reload(with: rows, animation: .fade)
 	}
 
 	// MARK: - Fetch data
