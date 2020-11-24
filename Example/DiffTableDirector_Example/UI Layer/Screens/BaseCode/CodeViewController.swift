@@ -50,7 +50,7 @@ class CodeViewController: UIViewController {
 		infoModels = self._loadInfo()
 
 		let sections = self._createSections(feedModels: self.feedModels, infoModels: self.infoModels)
-		_tableDirector.reload(with: sections, reloadRule: .fullReload, animation: .fade)
+		_tableDirector.reload(with: sections, animation: .fade)
 	}
 
 

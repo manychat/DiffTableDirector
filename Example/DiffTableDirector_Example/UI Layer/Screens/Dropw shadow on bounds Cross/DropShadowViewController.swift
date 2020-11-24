@@ -57,8 +57,7 @@ final class DropShadowViewController: UIViewController {
 		feedModels = _loadFeed()
 
 		let rows = _createRows(feedModels: self.feedModels)
-		let reloadRule = TableDirector.ReloadRule.calculateReloadAsync(queue: DispatchQueue.global())
-		self._tableDirector.reload(with: rows, reloadRule: reloadRule)
+		self._tableDirector.reload(with: rows)
 
 		_tableDirector.topCrossObserver = CrossObserver(didCross: { [weak self] in
 			print("did cross top bound")

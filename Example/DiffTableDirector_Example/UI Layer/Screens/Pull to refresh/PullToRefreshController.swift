@@ -19,7 +19,7 @@ final class PullTotRefreshController: UIViewController {
 
 	// MARK: - Properties
 	private lazy var _tableDirector: TableDirectorInput = {
-		return TableDirector(tableView: _tableView)
+		return TableDirector(tableView: _tableView, reloadRule: .calculateReloadAsync(queue: .global()))
 	}()
 
 	var feedModels: [FeedModel] = []
@@ -54,8 +54,7 @@ final class PullTotRefreshController: UIViewController {
 		feedModels = _loadFeed()
 
 		let rows = _createRows(feedModels: self.feedModels)
-		let reloadRule = TableDirector.ReloadRule.calculateReloadAsync(queue: DispatchQueue.global())
-		self._tableDirector.reload(with: rows, reloadRule: reloadRule)
+		self._tableDirector.reload(with: rows)
 
 		let topPaginationController = PaginationController(
 			settings: .top,

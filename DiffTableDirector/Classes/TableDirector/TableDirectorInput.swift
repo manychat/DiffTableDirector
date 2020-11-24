@@ -38,28 +38,19 @@ public protocol TableDirectorInput: class {
 	/// - Parameter sections: new table sections
 	func reload(with sections: [TableSection])
 
-	/// Reload table view animated with provided sections
+	/// Reload table view with provided sections
 	/// - Parameters:
 	///   - sections: new table sections
-	///   - reloadRule: update table rule
-	func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule)
+	///   - animated: should use table view default animation
+	func reload(with sections: [TableSection], animation: UITableView.RowAnimation)
 
 	/// Reload table view with provided sections
 	/// - Parameters:
 	///   - sections: new table sections
-	///   - reloadRule: update table rule
 	///   - animated: should use table view default animation
-	func reload(with sections: [TableSection], reloadRule: TableDirector.ReloadRule, animation: UITableView.RowAnimation)
-
-	/// Reload table view with provided sections
-	/// - Parameters:
-	///   - sections: new table sections
-	///   - reloadRule: update table rule
-	///   - animated: should use table view default animation
-	///   - completion: should use table view default animation
+	///   - completion: trigger after update is complete
 	func reload(
 		with sections: [TableSection],
-		reloadRule: TableDirector.ReloadRule,
 		animation: UITableView.RowAnimation,
 		completion: @escaping () -> Void)
 
@@ -70,24 +61,16 @@ public protocol TableDirectorInput: class {
 	/// Reload table view with single sections containig provider rows
 	/// - Parameters:
 	///   - rows: new table view rows
-	///   - reloadRule: update table rule
-	func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule)
+	///   - animated: should use table view default animation
+	func reload(with rows: [CellConfigurator], animation: UITableView.RowAnimation)
 
 	/// Reload table view with single sections containig provider rows
 	/// - Parameters:
 	///   - rows: new table view rows
-	///   - reloadRule: update table rule
 	///   - animated: should use table view default animation
-	func reload(with rows: [CellConfigurator], reloadRule: TableDirector.ReloadRule, animation: UITableView.RowAnimation)
-
-	/// Reload table view with single sections containig provider rows
-	/// - Parameters:
-	///   - rows: new table view rows
-	///   - reloadRule: update table rule
-	///   - animated: should use table view default animation
+	///   - completion: trigger after update is complete
 	func reload(
 		with rows: [CellConfigurator],
-		reloadRule: TableDirector.ReloadRule,
 		animation: UITableView.RowAnimation,
 		completion: @escaping () -> Void)
 
