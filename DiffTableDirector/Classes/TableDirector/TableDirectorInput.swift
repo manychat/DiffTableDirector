@@ -83,7 +83,10 @@ public protocol TableDirectorInput: class {
 	/// - Parameters:
 	///   - viewFactory: function that creates view. Called on main thread only
 	///   - position: information how to place view inside table view
-	func addEmptyStateView(viewFactory: @escaping () -> UIView, position: TableDirector.CoverView.Position)
+	func addEmptyStateView(
+		viewFactory: @escaping () -> UIView,
+		position: TableDirector.CoverView.Position,
+		showRule: TableDirector.EmptyViewShowRule)
 
 	/// Clear current table content and show info view with settings
 	/// If will replace empty view if there is any in table

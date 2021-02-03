@@ -92,6 +92,7 @@
 		DBBA114436617DAE5872CEA2EB36DBAB /* PaginationController.ScrollPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAAB39551D05C8835B17502C1814DC5 /* PaginationController.ScrollPosition.swift */; };
 		DE29B393BAC747D74C5AD30F58384EC0 /* TableDirectorCoverViewSizeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BD7AE7A53DA197BD9761ADF48E49B0 /* TableDirectorCoverViewSizeDelegate.swift */; };
 		E0C939A057CC19FC43F07799F5F24FBD /* ScrollObserverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B9A2EF2FBE61516680FB1871F782B /* ScrollObserverable.swift */; };
+		E210D19625CB346500C8A9C7 /* TableDirector.EmptyViewShowRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210D19525CB346400C8A9C7 /* TableDirector.EmptyViewShowRule.swift */; };
 		EA762013013B60BD55E37348E94F96C2 /* TableDirector.Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4285C9B642CBD5E38A0DAEFEE0EA107E /* TableDirector.Pagination.swift */; };
 		F4B768B16DD112E9B709B27243DF4136 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9809F479515D674590D47AEF93E5E80F /* Collection+Extensions.swift */; };
 		F4F4DB2F97C8EDDCA73E96A61EE7A59F /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28085A9370EEF76832591A514E13D3 /* UITableViewCell+Extension.swift */; };
@@ -232,6 +233,7 @@
 		DD49773AD950736244B0FA7893235F3D /* Pods-DiffTableDirector_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DiffTableDirector_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DDB98CE5136CB37ACFE65DC510A97E91 /* Pods-DiffTableDirector_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiffTableDirector_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E1073781321C609B5029F46A4F9DECAF /* Array+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Sources/Shared/Array+Extensions.swift"; sourceTree = "<group>"; };
+		E210D19525CB346400C8A9C7 /* TableDirector.EmptyViewShowRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDirector.EmptyViewShowRule.swift; sourceTree = "<group>"; };
 		EBF783521A70FAC0D3C6568D18D5B03F /* DiffableTableViewDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DiffableTableViewDataSource.swift; sourceTree = "<group>"; };
 		F0976F494DBAD7C585B5C00C73FF67D3 /* PaginationController.PrefetchStraregy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PaginationController.PrefetchStraregy.swift; sourceTree = "<group>"; };
 		F09CD9B1B7395FC98F22C211899F219A /* DeepDiff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeepDiff.release.xcconfig; sourceTree = "<group>"; };
@@ -352,11 +354,12 @@
 		5134DD58751AD2F02852BF3DA3C27210 /* TableDirector */ = {
 			isa = PBXGroup;
 			children = (
+				610E1C74A750E3D161B5E64BC6DB3920 /* TableDirectorInput.swift */,
 				7857DD220981AFE383E12ED9DFDAE7BE /* TableDirector.swift */,
 				4285C9B642CBD5E38A0DAEFEE0EA107E /* TableDirector.Pagination.swift */,
 				D96AEF7C0E81FB17EC2F32C17CDDD5BD /* TableDirector.Registrator.swift */,
 				1A5CC6CD070D5BB63697A7944F9A3059 /* TableDirector.ReloadRule.swift */,
-				610E1C74A750E3D161B5E64BC6DB3920 /* TableDirectorInput.swift */,
+				E210D19525CB346400C8A9C7 /* TableDirector.EmptyViewShowRule.swift */,
 			);
 			name = TableDirector;
 			path = DiffTableDirector/Classes/TableDirector;
@@ -792,6 +795,7 @@
 				EA762013013B60BD55E37348E94F96C2 /* TableDirector.Pagination.swift in Sources */,
 				5180DEB2815C16AD19A659EB56417C6D /* TableDirector.Registrator.swift in Sources */,
 				92950C6E23204E31B2CD949041BEC8D6 /* TableDirector.ReloadRule.swift in Sources */,
+				E210D19625CB346500C8A9C7 /* TableDirector.EmptyViewShowRule.swift in Sources */,
 				36F0835164CED81D10E0B67BA7E0DF65 /* TableDirector.swift in Sources */,
 				DE29B393BAC747D74C5AD30F58384EC0 /* TableDirectorCoverViewSizeDelegate.swift in Sources */,
 				8C5EB266BDD48D8BBF595CEA0715D633 /* TableDirectorInput.swift in Sources */,

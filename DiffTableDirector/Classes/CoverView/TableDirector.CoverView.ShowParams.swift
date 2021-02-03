@@ -12,5 +12,6 @@ extension TableDirector.CoverView {
 	struct ShowParams {
 		let coverView: UIView
 		let position: TableDirector.CoverView.Position
+		let showRule: TableDirector.EmptyViewShowRule
 	}
 }
