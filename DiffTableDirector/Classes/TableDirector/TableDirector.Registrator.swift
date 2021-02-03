@@ -8,20 +8,20 @@
 import Foundation
 import UIKit
 
-extension TableDirector {
+public extension TableDirector {
 	final class Registrator {
 		private weak var _tableView: UITableView?
 
 		private var _registredCellID: Set<String> = []
 		private var _registredHeaderFooterID: Set<String> = []
 
-		init(tableView: UITableView) {
+		public init(tableView: UITableView) {
 			_tableView = tableView
 		}
 
 		/// If cell is unregistered in talbe - register it. Otherwise do nothing
 		/// - Parameter cellClass: cell class to register
-		func registerIfNeeded(cellClass: UITableViewCell.Type) {
+		public func registerIfNeeded(cellClass: UITableViewCell.Type) {
 			let reuseIdentifier = cellClass.reuseIdentifier
 			guard !_registredCellID.contains(reuseIdentifier) else { return }
 			_registredCellID.insert(reuseIdentifier)
@@ -40,7 +40,7 @@ extension TableDirector {
 
 		/// If view is unregistered - register it. Otherwise do nothing
 		/// - Parameter headerFooterClass: footer/header class to register
-		func registerIfNeeded(headerFooterClass: UITableViewHeaderFooterView.Type) {
+		public func registerIfNeeded(headerFooterClass: UITableViewHeaderFooterView.Type) {
 			let reuseIdentifier = headerFooterClass.reuseIdentifier
 			guard !_registredHeaderFooterID.contains(reuseIdentifier) else { return }
 			_registredHeaderFooterID.insert(reuseIdentifier)

@@ -106,17 +106,19 @@ open class TableDirector: NSObject {
 	}
 
 	private func _changeCoverViewVisability(isSectionsEmpty: Bool) {
-		if let coverViewParams = _defaultCoverViewShowParams,
-			let tableView = _tableView,
-			isSectionsEmpty,
-			_canShowEmptyView {
-			_coverController.add(
-				view: coverViewParams.coverView,
-				to: tableView,
-				position: coverViewParams.position)
+		guard let coverViewParams = _defaultCoverViewShowParams,
+			  let tableView = _tableView,
+			  _canShowEmptyView else {
+			_coverController.hide()
 			return
 		}
-		_coverController.hide()
+		switch coverViewParams.showRule {
+		case .noCell:
+			guard isSectionsEmpty else { return }
+		case .custom(let rule):
+			guard rule(_sections) else { return }
+		}
+		_coverController.add(view: coverViewParams.coverView, to: tableView, position: coverViewParams.position)
 	}
 
 	// MARK: - Reload
@@ -298,11 +300,14 @@ extension TableDirector: TableDirectorInput {
 		tableView.prefetchDataSource = self
 	}
 
-	public func addEmptyStateView(viewFactory: @escaping () -> UIView, position: TableDirector.CoverView.Position) {
+	public func addEmptyStateView(
+		viewFactory: @escaping () -> UIView,
+		position: TableDirector.CoverView.Position,
+		showRule: TableDirector.EmptyViewShowRule) {
 		DispatchQueue.asyncOnMainIfNeeded {
 			let view = viewFactory()
 
-			self._defaultCoverViewShowParams = .init(coverView: view, position: position)
+			self._defaultCoverViewShowParams = .init(coverView: view, position: position, showRule: showRule)
 			if self._sections.isEmpty && self._updateQueue.isEmpty {
 				guard let tableView = self._tableView else { return }
 				self._coverController.add(view: view, to: tableView, position: position)
