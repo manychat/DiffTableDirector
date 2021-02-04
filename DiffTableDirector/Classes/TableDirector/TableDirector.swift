@@ -113,7 +113,7 @@ open class TableDirector: NSObject {
 			return
 		}
 		switch coverViewParams.showRule {
-		case .noCell:
+		case .noCells:
 			guard isSectionsEmpty else { return }
 		case .custom(let rule):
 			guard rule(_sections) else { return }

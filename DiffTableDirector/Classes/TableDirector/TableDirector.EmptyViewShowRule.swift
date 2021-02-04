@@ -12,7 +12,7 @@ public extension TableDirector {
 	/// When cover view should be shown
 	enum EmptyViewShowRule {
 		// When there is no cells
-		case noCell
+		case noCells
 		// When caller decide if cover view should be shown
 		case custom(rule: (_ sections: [TableSection]) -> Bool)
 	}
