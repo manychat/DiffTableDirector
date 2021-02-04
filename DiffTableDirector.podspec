@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DiffTableDirector'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'Framework to work with table view safe and easy. Support diff, pagination, placeholder view  '
 
   s.description      = <<-DESC
