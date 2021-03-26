@@ -34,6 +34,7 @@ struct SectionsComporator {
 		var insertedIndexes: [IndexPath] = []
 		var deletedIndexes: [IndexPath] = []
 		var reloadedIndexes: [IndexPath] = []
+		var movedIndexes: [CollectionUpdate.MoveBatch.Indexes] = []
 		for (index, section) in newSections.enumerated() {
 			guard let oldSection = oldSections[safe: index] else {
 				continue
@@ -44,10 +45,12 @@ struct SectionsComporator {
 			insertedIndexes += comparator.inserted
 			deletedIndexes += comparator.deleted
 			reloadedIndexes += comparator.replaced
+			movedIndexes += comparator.moved.map { CollectionUpdate.MoveBatch.Indexes(from: $0.from, to: $0.to) }
 		}
 		return CollectionUpdate(
 			reload: .init(rows: reloadedIndexes),
 			insert: .init(rows: insertedIndexes, sections: insertedSections),
-			delete: .init(rows: deletedIndexes, sections: deletedSections))
+			delete: .init(rows: deletedIndexes, sections: deletedSections),
+			move: .init(rows: movedIndexes, sections: nil))
 	}
 }

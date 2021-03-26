@@ -24,7 +24,32 @@ extension CollectionUpdate {
 			self.sections = sections
 		}
 	}
+
+	struct MoveBatch {
+		let rows: [Indexes]
+		let sections: IndexSet?
+
+		static let zero = CollectionUpdate.MoveBatch(rows: [], sections: nil)
+
+		var description: String {
+			return "rows: \(rows) sections: \(String(describing: sections))"
+		}
+
+		init(rows: [Indexes], sections: IndexSet? = nil) {
+			self.rows = rows
+			self.sections = sections
+		}
+	}
+}
+
+extension CollectionUpdate.MoveBatch {
+	struct Indexes {
+		let from: IndexPath
+		let to: IndexPath
+	}
 }
 
 // MARK: - Equatable
 extension CollectionUpdate.Batch: Equatable { }
+extension CollectionUpdate.MoveBatch.Indexes: Equatable { }
+extension CollectionUpdate.MoveBatch: Equatable { }

@@ -35,6 +35,14 @@ extension UITableView {
 		}
 	}
 
+	private func _moveSections(update: CollectionUpdate, animation: UITableView.RowAnimation) {
+		if update.move != .zero {
+			update.move.rows.forEach {
+				self.moveRow(at: $0.from, to: $0.to)
+			}
+		}
+	}
+
 	func reload(
 		update: CollectionUpdate,
 		animation: UITableView.RowAnimation,
@@ -50,6 +58,7 @@ extension UITableView {
 				}, completion: { _ in
 					self.performBatchUpdates({  [weak self] in
 						self?._reloadSection(update: update, animation: animation)
+						self?._moveSections(update: update, animation: animation)
 					}, completion: { _ in
 						UIView.setAnimationsEnabled(true)
 						completion()
