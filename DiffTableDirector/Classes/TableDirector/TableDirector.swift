@@ -267,6 +267,10 @@ extension TableDirector: TableDirectorInput {
 			if !sections.isEmpty {
 				self._coverController.hide()
 			}
+			if self._sections.isEmpty && sections.isEmpty {
+				internalCompletion()
+				return
+			}
 			self._reload(with: sections, reloadRule: self._reloadRule, animation: animation, completion: internalCompletion)
 		}
 		_updateQueue.append(updateTableBlock)
